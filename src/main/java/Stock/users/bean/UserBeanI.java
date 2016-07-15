@@ -10,9 +10,9 @@ public interface UserBeanI {
 	
 	List<Users> list();
 	
-	boolean delete (int id);
+	boolean delete (Long userid);
 	
 	String listInJson();
 	
-	String load(int id);
+	String load(long l);
 }

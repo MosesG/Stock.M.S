@@ -1,5 +1,6 @@
 package Stock.users.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 
 @Entity
 @Table(name = "Users")
-public class Users {
+public class Users implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -26,10 +27,10 @@ public class Users {
 	private String User_Email;
 	
 	@Column(name = "User_PhoneNo")
-	private int User_PhoneNo;
+	private String User_PhoneNo;
 	
 	@Column(name = "User_Box")
-	private int User_Box;
+	private String User_Box;
 
 	public Long getId() {
 		return Id;
@@ -63,24 +64,20 @@ public class Users {
 		User_Email = user_Email;
 	}
 
-	public int getUser_PhoneNo() {
+	public String getUser_PhoneNo() {
 		return User_PhoneNo;
 	}
 
-	public void setUser_PhoneNo(int user_PhoneNo) {
+	public void setUser_PhoneNo(String user_PhoneNo) {
 		User_PhoneNo = user_PhoneNo;
 	}
 
-	public int getUser_Box() {
+	public String getUser_Box() {
 		return User_Box;
 	}
 
-	public void setUser_Box(int user_Box) {
+	public void setUser_Box(String user_Box) {
 		User_Box = user_Box;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 	
 	public String getJson(){

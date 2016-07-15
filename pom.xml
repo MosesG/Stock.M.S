@@ -125,21 +125,22 @@
   </dependencies>
   
   <build>
-    <finalName>Stock.M.S</finalName>
-    <plugins>
+	<finalName>Stock.M.S</finalName>
+	<plugins>
 
 		<plugin>
 			<groupId>org.wildfly.plugins</groupId>
 			<artifactId>wildfly-maven-plugin</artifactId>
-			<version>1.0.0.Final</version>
+			<version>1.1.0.Alpha10</version>
 		</plugin>
-		
+
+
 		<plugin>
-	  	 	<groupId>com.google.appengine</groupId>
-	 	 	<artifactId>appengine-maven-plugin</artifactId>
-	   		<version>1.9.38</version>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-maven-plugin</artifactId>
+			<version>1.9.38</version>
 		</plugin>
-	
+
 	</plugins>
 
     <pluginManagement>
