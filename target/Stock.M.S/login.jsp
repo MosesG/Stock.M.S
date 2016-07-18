@@ -17,27 +17,27 @@
         <link href="css/app.min.1.css" rel="stylesheet">
         <link href="css/app.min.2.css" rel="stylesheet">
     </head>
-    
+ 
     <body>
         <div class="login" data-lbg="teal">
             <!-- Login -->
             <div class="l-block toggled" id="l-login">
                 <div class="lb-header palette-Teal bg">
                     <i class="zmdi zmdi-account-circle"></i>
-                    Hi there! Please Sign in
+                    welcome! please sign in.
                 </div>
 
                 <div class="lb-body">
                     <div class="form-group fg-float">
                         <div class="fg-line">
-                            <input type="text" class="input-sm form-control fg-input">
+                            <input type="text" class="input-sm form-control fg-input" required>
                             <label class="fg-label">Email Address</label>
                         </div>
                     </div>
 
                     <div class="form-group fg-float">
                         <div class="fg-line">
-                            <input type="password" class="input-sm form-control fg-input">
+                            <input type="password" class="input-sm form-control fg-input" required>
                             <label class="fg-label">Password</label>
                         </div>
                     </div>

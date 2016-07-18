@@ -17,14 +17,14 @@
         <link href="css/app.min.1.css" rel="stylesheet">
         <link href="css/app.min.2.css" rel="stylesheet">
     </head>
-    
+ 
     <body>
         <div class="login" data-lbg="teal">
             <!-- Login -->
             <div class="l-block toggled" id="l-login">
                 <div class="lb-header palette-Teal bg">
                     <i class="zmdi zmdi-account-circle"></i>
-                    Hi there! Please Sign in
+                    welcome! please sign in.
                 </div>
 
                 <div class="lb-body">
