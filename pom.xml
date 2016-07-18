@@ -1,13 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+<<<<<<< HEAD
   <groupId>com.StockManSys</groupId>
+=======
+  <groupId>com.mozzay.StockManSys</groupId>
+>>>>>>> 007d43724d8fb8746c06069fa1b094eea7e84941
   <artifactId>Stock.M.S</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Stock.M.S Maven Webapp</name>
   <url>http://maven.apache.org</url>
+<<<<<<< HEAD
   <properties>
+=======
+ <properties>
+>>>>>>> 007d43724d8fb8746c06069fa1b094eea7e84941
   	<junit.version>4.12</junit.version>
   	<hibernate.version>4.3.6.Final</hibernate.version>
   	<apache.common.version>3.3.2</apache.common.version>
@@ -125,12 +133,18 @@
   </dependencies>
   
   <build>
+<<<<<<< HEAD
     <finalName>Stock.M.S</finalName>
     <plugins>
+=======
+	<finalName>Stock.M.S</finalName>
+	<plugins>
+>>>>>>> 007d43724d8fb8746c06069fa1b094eea7e84941
 
 		<plugin>
 			<groupId>org.wildfly.plugins</groupId>
 			<artifactId>wildfly-maven-plugin</artifactId>
+<<<<<<< HEAD
 			<version>1.0.0.Final</version>
 		</plugin>
 		
@@ -140,6 +154,18 @@
 	   		<version>1.9.38</version>
 		</plugin>
 	
+=======
+			<version>1.1.0.Alpha10</version>
+		</plugin>
+
+
+		<plugin>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-maven-plugin</artifactId>
+			<version>1.9.38</version>
+		</plugin>
+
+>>>>>>> 007d43724d8fb8746c06069fa1b094eea7e84941
 	</plugins>
 
     <pluginManagement>
