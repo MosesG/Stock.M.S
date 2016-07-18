@@ -4,6 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
+<<<<<<< HEAD
   <display-name>Stock.M.S - Stock Management Application</display-name>
  
  	<welcome-file-list>
@@ -31,3 +32,7 @@
 	  <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
 	</listener>
 </web-app>
+=======
+         <display-name>Stock.M.S Maven Webapp</display-name>
+</web-app>
+>>>>>>> 007d43724d8fb8746c06069fa1b094eea7e84941
