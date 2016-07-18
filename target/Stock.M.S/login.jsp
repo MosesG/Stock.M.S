@@ -30,14 +30,14 @@
                 <div class="lb-body">
                     <div class="form-group fg-float">
                         <div class="fg-line">
-                            <input type="text" class="input-sm form-control fg-input">
+                            <input type="text" class="input-sm form-control fg-input" required>
                             <label class="fg-label">Email Address</label>
                         </div>
                     </div>
 
                     <div class="form-group fg-float">
                         <div class="fg-line">
-                            <input type="password" class="input-sm form-control fg-input">
+                            <input type="password" class="input-sm form-control fg-input" required>
                             <label class="fg-label">Password</label>
                         </div>
                     </div>
