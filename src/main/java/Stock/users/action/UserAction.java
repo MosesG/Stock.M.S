@@ -38,11 +38,11 @@ public class UserAction extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Users user = new Users();
 
-		user.setUser_Name(req.getParameter("Name"));
-		user.setUser_Password(req.getParameter("Password"));
-		user.setUser_Email(req.getParameter("Email"));
-		user.setUser_PhoneNo(req.getParameter("Phone"));
-		user.setUser_Box(req.getParameter("Box"));
+		user.setUser_Name(req.getParameter("User_Name"));
+		user.setUser_Password(req.getParameter("User_Password"));
+		user.setUser_Email(req.getParameter("User_Email"));
+		user.setUser_PhoneNo(req.getParameter("User_PhoneNo"));
+		user.setUser_Box(req.getParameter("User_Box"));
 
 		UserBean.add(user);
 
@@ -59,9 +59,8 @@ public class UserAction extends HttpServlet{
 		UserBean.delete(userid);
 	}
 	
-	private void load(HttpServletRequest request,
-			HttpServletResponse response) 
-			throws ServletException, IOException{
+	private void load(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{ 
 		PrintWriter resp = response.getWriter();
         resp.println(UserBean.load(Long.parseLong(request.getParameter("id"))));
 	}

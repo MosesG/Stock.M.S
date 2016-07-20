@@ -380,7 +380,7 @@
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Reports</a>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle" onclick="user.init()"><i class="zmdi zmdi-swap-alt"></i>Stuff</a>
+                        <a href="#" data-ma-action="submenu-toggle" onclick="user.form()"><i class="zmdi zmdi-swap-alt"></i>Stuff</a>
                     </li>
                 </ul>
             </aside>

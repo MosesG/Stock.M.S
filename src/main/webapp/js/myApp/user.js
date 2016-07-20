@@ -4,7 +4,7 @@ var user = App.extend(App.Cmp, {
 	responseTarget: 'ajax-content',
 	model:[{
 		id : 'name',
-		name : 'Name',
+		name : 'User_Name',
 		placeholder : 'Enter your user name here',
 		type : 'text',
 		required : 'required',
@@ -12,7 +12,7 @@ var user = App.extend(App.Cmp, {
 	
 	},{
 		id : 'email',
-		name : 'Email',
+		name : 'User_Email',
 		placeholder : 'Enter your email',
 		type : 'email',
 		required : 'required',
@@ -20,7 +20,7 @@ var user = App.extend(App.Cmp, {
 
 	}, {
 		id : 'phoneNumber',
-		name : 'Phone',
+		name : 'User_PhoneNo',
 		placeholder : 'Enter your phone number',
 		type : 'number',
 		required : 'required',
@@ -28,7 +28,7 @@ var user = App.extend(App.Cmp, {
 
 	},{
 		id : 'password',
-		name : 'Password',
+		name : 'User_Password',
 		placeholder : 'Enter the name of your town here',
 		type : 'password',
 		required : 'required',
@@ -36,7 +36,7 @@ var user = App.extend(App.Cmp, {
 
 	},{
 		id : 'box',
-		name : 'Box',
+		name : 'User_Box',
 		placeholder : 'Enter your postal adress here',
 		type : 'box',
 		required : 'required',

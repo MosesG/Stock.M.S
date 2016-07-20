@@ -40,6 +40,7 @@ App.Cmp = {
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			xhr.send(me.requestParams);
 		} else
+			
 			xhr.send();
 	},
 	validate : function() {
@@ -370,22 +371,31 @@ App.Cmp = {
 	},
 	
 	tableStore: '',
+	model:'',
 	table: function(tableUrl){
 		var me = this;
+		var editId;
+		var delId;
 		
 		me.ajaxRequest.call({
 			httpMethod: 'GET',
 			httpUrl: tableUrl,
 			responseTarget: me.responseTarget,
 			updateTarget: function(resp){
+				console.log(httpUrl);
 				var table = '<div class="card">';
-				table += ' <div class="table-responsive">'
+				table += ' <div class="card-header">'
+						+' <h2>Basic Example <small>without any effort.</small></h2>'
+						+'<div style="float:right">'
+						+"<a id=\"" + me.form(httpUrl) + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
+						+'</div>'
+						+'</div>'
+						+' <div class="table-responsive">'
 						+'<table id="data-table-basic" class="table table-striped">'
 						+'<thead>'
 					  	+'<tr>';
-				console.log(me.model[1].label);
-				var x = 0;
-				jsonRecords.forEach(function(model){
+				
+				me.model.forEach(function(model){
 					table += '<th>' + model.label + '</th>';
 					
 				});
@@ -394,25 +404,60 @@ App.Cmp = {
 					  + '</thead>';
 				
 				table += '<tbody>';
-				
+				console.log(JSON.parse(resp));
 				JSON.parse(resp).forEach(function(el){
+					editId = me.modelId + "-edit-" + el.id;
+					delId = me.modelId + "-del-" + el.id;
+					
 					table += '<tr>';
-						me.fromFields.forEach(function(model){
+					console.log(el.id);
+						me.model.forEach(function(model){
+							
+							console.log(el[model.name]);
 							table += '<td>' + el[model.name] + '</td>';
 						});
-					table += '</tr>';
+						
+						
+					table += "<td>" +
+							"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | " +
+									"<a id=\""	+ delId + "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>" +
+											"</td>"
+							
+							+'</tr>';
+					
+					
 				});
 				table += '</tbody>'
 				
 				table += '</table></div></div>';
 				
+				var jsonRecords = JSON.parse(resp);
 				
-				me.getEl(me.responseTarget).innerHTML = table;
+				if (me.getEl(me.responseTarget).innerHTML = table) {
+					jsonRecords.forEach(function(el) {
+						console.log("passed id: "+delId);
+						editId = me.modelId + "-edit-" + el.id;
+						delId = me.modelId + "-del-" + el.id;
+
+						me.getEl(editId).addEventListener('click', function() {
+							me.loadForm(el.id);
+						});
+
+						me.getEl(delId).addEventListener('click', function() {
+							me.removeRec(el.id);
+						});
+					});
+					
+					me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
+						me.form();
+					});
+				}
+				//me.getEl(me.responseTarget).innerHTML = table;
 			}
 		});
 },
 	init : function() {
-		this.form(this.httpUrl);
+		this.table(this.httpUrl);
 	}
 };
 
