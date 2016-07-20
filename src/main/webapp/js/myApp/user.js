@@ -1,38 +1,18 @@
-var passenger = App.extend (App.Cmp, {
+var user = App.extend(App.Cmp, {
 	modelId: 'user',
 	httpUrl:  './user',
 	responseTarget: 'ajax-content',
-	columnModel: ['firstname', 'lastname'],
-	columnSeperator: ' -: ',
-	model: [ {
-		id : 'fname',
-		name : 'firstname',
-		placeholder : 'Enter your first name here',
+	model:[{
+		id : 'name',
+		name : 'Name',
+		placeholder : 'Enter your user name here',
 		type : 'text',
 		required : 'required',
-		label: 'First Name'
+		label: 'Name'
 	
-	}, {
-		id : 'lname',
-		name : 'lastname',
-		placeholder : 'Enter your last name here',
-		type : 'text',
-		required : 'required',
-		label: 'Last Name'
-
-	},
-	 {
-		id : 'idNumber',
-		name : 'idNumber',
-		placeholder : 'Enter your last name here',
-		type : 'text',
-		required : 'required',
-		label: 'Id Number/Passport'
-
-	},
-	{
+	},{
 		id : 'email',
-		name : 'email',
+		name : 'Email',
 		placeholder : 'Enter your email',
 		type : 'email',
 		required : 'required',
@@ -40,29 +20,32 @@ var passenger = App.extend (App.Cmp, {
 
 	}, {
 		id : 'phoneNumber',
-		name : 'phoneNumber',
+		name : 'Phone',
 		placeholder : 'Enter your phone number',
 		type : 'number',
 		required : 'required',
 		label: 'Phone Number'
 
 	},{
-		id : 'town',
-		name : 'town',
+		id : 'password',
+		name : 'Password',
 		placeholder : 'Enter the name of your town here',
-		type : 'text',
+		type : 'password',
 		required : 'required',
-		label: 'Town'
+		label: 'password'
 
 	},{
 		id : 'box',
-		name : 'box',
-		placeholder : 'Enter your last name here',
+		name : 'Box',
+		placeholder : 'Enter your postal adress here',
 		type : 'box',
 		required : 'required',
-		label: 'P.O BOX:'
+		label: 'P.O BOX'
 
 	}],
 	removeRecord: true,
 	
 });
+(function(){
+	user.init();
+})();

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <!--[if IE 9 ]><html class="ie9"><![endif]-->
     
@@ -356,20 +355,20 @@
 
                 <ul class="main-menu">
                     <li class="active">
-                        <a href="index.html"><i class="zmdi zmdi-home"></i> Home</a>
+                        <a href="index.jsp"><i class="zmdi zmdi-home"></i> Home</a>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> Accounts</a>
                     </li>
-                    <li><a href="typography.html"><i class="zmdi zmdi-format-underlined"></i> Sales</a>
-                    	<ul>
-                            <li><a href="photos.html">Cash</a></li>
-                            <li><a href="photo-timeline.html">Cheques</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="widgets.html"><i class="zmdi zmdi-widgets"></i> Stock</a></li>
+                    <li><a href="#"><i class="zmdi zmdi-format-underlined"></i> Products</a></li>
+                    <li><a href="#"><i class="zmdi zmdi-widgets"></i> Stock</a></li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Products</a>
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Sales</a>
+                        
+                        <ul>
+                            <li><a href="#">Cash</a></li>
+                            <li><a href="#">Cheques</a></li>
+                        </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-text"></i>Restock Orders</a>
@@ -381,100 +380,27 @@
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Reports</a>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Stuff</a>
+                        <a href="#" data-ma-action="submenu-toggle" onclick="user.init()"><i class="zmdi zmdi-swap-alt"></i>Stuff</a>
                     </li>
                 </ul>
             </aside>
 
-            <section id="content">
-                <div class="container">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>Striped rows <small>Add zebra-striping to any table row within the tbody</small></h2>
-                        </div>
+		<section id="content">
+			<div class="container">
+				<div class="card">
+			
+					<div id="ajax-content">
+					
+					
+					</div>
 
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                        <th>Nickname</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Alexandra</td>
-                                        <td>Christopher</td>
-                                        <td>@makinton</td>
-                                        <td>Ducky</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Madeleine</td>
-                                        <td>Hollaway</td>
-                                        <td>@hollway</td>
-                                        <td>Cheese</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Sebastian</td>
-                                        <td>Johnston</td>
-                                        <td>@sebastian</td>
-                                        <td>Jaycee</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                     
 
-  <td>Mitchell</td>
-                                        <td>Christin</td>
-                                        <td>@mitchell4u</td>
-                                        <td>AdskiDeAnus</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Elizabeth</td>
-                                        <td>Belkitt</td>
-                                        <td>@belkitt</td>
-                                        <td>Goat</td>
-                                    </tr>
-                                    <tr>
+				</div>
+			</div>
+			
+		</section>
 
- <td>6</td>
-                                        <td>Benjamin</td>
-                                        <td>Parnell</td>
-                                        <td>@wayne234</td>
-                                        <td>Pokie</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Katherine</td>
-                                        <td>Buckland</td>
-                                        <td>@anitabelle</td>
-                                        <td>Wokie</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Nicholas</td>
-                                        <td>W
-
-  <td>@mwalmart</td>
-                                        <td>Spike</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-            </section>
-
-            <footer id="footer">
+		<footer id="footer">
                 Copyright &copy; 2015 Material Admin
 
                 <ul class="f-menu">
@@ -539,6 +465,9 @@
                 <p>Sorry for the inconvenience!</p>
             </div>   
         <![endif]-->
+        	 <script src="js/myApp/base.app.js"></script>
+          <script src="js/myApp/user.js"></script>
+       
 
          <!-- Javascript Libraries -->
         <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
@@ -565,6 +494,8 @@
         <![endif]-->
 
         <script src="js/charts.js"></script>
+        
+      
 
         <script src="js/functions.js"></script>
         <script src="js/actions.js"></script>
@@ -573,154 +504,4 @@
     </body>
   
 <!-- Mirrored from byrushan.com/projects/mae/1-0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jul 2016 09:11:51 GMT -->
-<html lang="en">
-
-<head>
-
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	
-	<title>Welcome to TripTicket</title>
-	
-	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/custom.css" rel="stylesheet">
-
-	<!-- Custom CSS -->
-	<link href="css/shop-item.css" rel="stylesheet">
-	<link href="css/datepicker3.min.css" rel="stylesheet">
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">TripTicket</a>
-            </div>
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active" onclick="company.init()">Companies</a>
-                    <a href="#" class="list-group-item " onclick="triplocation.init()">Locations</a>
-                    <a href="#" class="list-group-item" onclick="route.init()">Routes</a>
-                    <a href="#" class="list-group-item" onclick="ticket.init()">Ticket</a>
-                    <a href="#" class="list-group-item  glyphicon glyphicon-user" onclick="passenger.init()"> Passenger</a>
-                    <a href="#" class="list-group-item " onclick="vehicle.list()">Vehicle</a>
-					<a href="#" class="list-group-item " onclick="person.list()">Persons</a>
-                   	<a href="#" class="list-group-item " onclick="trip.init()">Trip</a>
- 					<a href="#" class="list-group-item " onclick="vehicle.init()">Vehicle</a>
-                    <a href="#" class="list-group-item " onclick="parcel.init()">Parcel</a>
-
-
-                </div>
-                 
-            </div>
-
-            <div class="col-md-9">
-            
-                <div class="well" id="ajax-content">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-    <div class="container">
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; 2016</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-	<script src="js/app/base.app.js"></script>
-    <script src="js/app/company.js"></script>
-    <script src="js/app/ticket.js"></script>
-    <script src="js/app/location.js"></script>
-    <script src="js/app/vehicle.js"></script>
-    <script src="js/app/route.js"></script>
-    <script src="js/app/trip.js"></script>
-    <script src="js/app/passenger.js"></script>
-
-
-    <script src="js/app/person.js"></script>
-
-    <script src="js/app/parcel.js"></script>
-
-
-    <script src="js/app/person.js"></script>
-
-    <script src="js/app/parcel.js"></script>
-
-    
-    <!-- jQuery -->
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    
-	
-	
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    
-    
-    <script>
-		$(document).ready(function(){
-			var date_input=$('input[name="dateofpayment"]'); //our date input has the name "date"
-			var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-			date_input.datepicker({
-				format: 'yyyy-mm-dd',
-				container: container,
-				todayHighlight: true,
-				autoclose: true,
-			})
-		})
-	</script>
-	
-	<script>
-		$(document).ready(function(){
-			var date_input=$('input[name="travelDate"]'); //our date input has the name "date"
-			var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-			date_input.datepicker({
-				format: 'yyyy-mm-dd',
-				container: container,
-				todayHighlight: true,
-				autoclose: true,
-			})
-		})
-	</script>
-
-</body>
-
 </html>
