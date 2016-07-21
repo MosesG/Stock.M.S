@@ -360,13 +360,20 @@
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> Accounts</a>
                     </li>
-                    <li><a href="#"><i class="zmdi zmdi-format-underlined"></i> Products</a></li>
+                    <li class="sub-menu">
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Products</a>
+                        
+                        <ul>
+                            <li><a href="#" onclick="products.init()">View Existing</a></li>
+                            <li><a href="#" onclick="products.form()">New Product</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#"><i class="zmdi zmdi-widgets"></i> Stock</a></li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Sales</a>
                         
                         <ul>
-                            <li><a href="#">Cash</a></li>
+                            <li><a href="#" onclick="sales.form()">Cash</a></li>
                             <li><a href="#">Cheques</a></li>
                         </ul>
                     </li>
@@ -467,6 +474,8 @@
         <![endif]-->
         	 <script src="js/myApp/base.app.js"></script>
           <script src="js/myApp/user.js"></script>
+          <script src="js/myApp/products.js"></script>
+          <script src="js/myApp/sales.js"></script>
        
 
          <!-- Javascript Libraries -->

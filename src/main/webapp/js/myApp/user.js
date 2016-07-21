@@ -2,6 +2,7 @@ var user = App.extend(App.Cmp, {
 	modelId: 'user',
 	httpUrl:  './user',
 	responseTarget: 'ajax-content',
+	title: 'stuff details',
 	model:[{
 		id : 'name',
 		name : 'User_Name',

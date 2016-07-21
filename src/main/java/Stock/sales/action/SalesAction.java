@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import Stock.sales.bean.SalesBeanI;
 import Stock.sales.model.Sales;
 
-@WebServlet("/sales")
+@WebServlet("/sales/*")
 public class SalesAction extends HttpServlet {
 	
 private static final long serialVersionUID = 1L;

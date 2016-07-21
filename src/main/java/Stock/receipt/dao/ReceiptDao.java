@@ -1,5 +1,8 @@
 package Stock.receipt.dao;
 
-public class ReceiptDao {
+import Stock.GenericDao.GenericDao;
+import Stock.receipt.model.Receipt;
+
+public class ReceiptDao extends GenericDao<Receipt, Integer> implements ReceiptDaoI {
 
 }

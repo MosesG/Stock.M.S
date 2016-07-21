@@ -37,10 +37,11 @@ App.Cmp = {
 
 		xhr.open(me.httpMethod, me.httpUrl, me.async);
 		if (me.requestParams) {
+			//console.log("params passed: "+ me.requestParams);
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			xhr.send(me.requestParams);
 		} else
-			
+			console.log("loading details......almost complete");
 			xhr.send();
 	},
 	validate : function() {
@@ -199,7 +200,7 @@ App.Cmp = {
 			form += '<div class="form-group">'
 					+'<label for="inputEmail3" class="col-sm-2 control-label">'+ el.label +'</label>'
 					+'<div class="col-sm-10">'
-					+'<div class="fg-line" id="' + el.id + '_div">'
+					+'<div id="' + el.id + '_div">'
 
 			if (el.type == 'select' && el.options) {
 				form += '<select class="form-control" name="' + el.name
@@ -219,7 +220,7 @@ App.Cmp = {
 
 		form += '</div>'
 				+'</form>'
-				+'<div class="col-sm-offset-2 col-sm-10">'
+				+'<div class="col-sm-offset-2 col-sm-10" style="float:right">'
 				+'<a class="btn btn-success" id="' + me.modelId
 				+ '-save">Save</a>'
 				+'</div>';
@@ -262,12 +263,14 @@ App.Cmp = {
 	},
 	loadForm : function(id) {
 		var me = this;
-
+		console.log("loading details......No: "+ id +"response target : "+ me.responseTarget)
 		me.ajaxRequest.call({
 			httpMethod : me.httpMethod,
 			httpUrl : me.httpUrl + '/load?id=' + id,
 			responseTarget : me.responseTarget,
+			
 			updateTarget : function(resp) {
+				//console.log("loading details......almost complete")
 				me.form();
 				var result = JSON.parse(resp);
 				me.model.forEach(function(el) {
@@ -372,6 +375,7 @@ App.Cmp = {
 	
 	tableStore: '',
 	model:'',
+	
 	table: function(tableUrl){
 		var me = this;
 		var editId;
@@ -382,12 +386,12 @@ App.Cmp = {
 			httpUrl: tableUrl,
 			responseTarget: me.responseTarget,
 			updateTarget: function(resp){
-				console.log(httpUrl);
+				
 				var table = '<div class="card">';
 				table += ' <div class="card-header">'
-						+' <h2>Basic Example <small>without any effort.</small></h2>'
+						+" <h2>"+ me.title +"<small>without any effort.</small></h2>"
 						+'<div style="float:right">'
-						+"<a id=\"" + me.form(httpUrl) + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
+						+"<a id=\"" + me.form() + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
 						+'</div>'
 						+'</div>'
 						+' <div class="table-responsive">'

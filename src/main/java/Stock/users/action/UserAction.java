@@ -15,7 +15,7 @@ import Stock.users.model.Users;
 
 
 
-@WebServlet("/user")
+@WebServlet("/user/*")
 public class UserAction extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;

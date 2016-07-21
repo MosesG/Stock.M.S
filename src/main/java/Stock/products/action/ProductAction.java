@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import Stock.products.bean.ProductBeanI;
 import Stock.products.model.Product;
 
-@WebServlet("/product")
+@WebServlet("/product/*")
 public class ProductAction extends HttpServlet{
 	
 private static final long serialVersionUID = 1L;
@@ -21,25 +21,34 @@ private static final long serialVersionUID = 1L;
 	@EJB
 	private ProductBeanI ProductBean;
 	
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String [] pathCmp = request.getRequestURI().split("/");
 		String path = pathCmp[pathCmp.length-1];
+		
+		System.out.println(path);
 		
 		if(path.equalsIgnoreCase("load"))
 			this.load(request, response);
 		else
+			System.out.println("hapa imepita");
+
 			this.list(response);
 	}
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		Product product = new Product();
+		
+		if(req.getParameter("id") != null 
+				&& !req.getParameter("id").equals("undefined"))
+			product.setId(Long.parseLong(req.getParameter("id")));
 
 		product.setProd_Cat(Long.parseLong(req.getParameter("Prod_Cat")));
 		product.setProd_Code(req.getParameter("prod_Code"));
 		product.setProd_Name(req.getParameter("prod_Name"));
 		product.setProd_Price(Double.parseDouble(req.getParameter("prod_Price")));
+		product.setStockLevel(Integer.parseInt(req.getParameter("stockLevel")));
 		
 		ProductBean.add(product);
 

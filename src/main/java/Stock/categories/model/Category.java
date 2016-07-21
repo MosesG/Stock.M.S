@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 
 @Entity
-@Table(name = "Categories")
+@Table(name = "Category")
 public class Category {
 	
 	private static final long serialVersionUID = 1L;
