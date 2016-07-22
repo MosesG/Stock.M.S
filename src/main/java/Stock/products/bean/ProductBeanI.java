@@ -6,7 +6,7 @@ import Stock.products.model.Product;
 
 public interface ProductBeanI {
 	
-	void add( Product products);
+	void add(Product products);
 	
 	List<Product> list();
 	
@@ -15,5 +15,5 @@ public interface ProductBeanI {
 	String listInJson();
 	
 	String load(long l);
-
+	
 }

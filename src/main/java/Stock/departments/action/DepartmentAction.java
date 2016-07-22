@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import Stock.departments.bean.DepartmentBeanI;
 import Stock.departments.model.Department;
 
-@WebServlet("/department")
+@WebServlet("/department/*")
 public class DepartmentAction extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
@@ -36,9 +36,9 @@ public class DepartmentAction extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Department department = new Department();
 
-		department.setDept_Code(req.getParameter("dept_Code"));
-		department.setDept_Name(req.getParameter("dept_Name"));
-		department.setDept_Desc(req.getParameter("dept_Desc"));
+		department.setDept_Code(req.getParameter("Dept_Code"));
+		department.setDept_Name(req.getParameter("Dept_Name"));
+		department.setDept_Desc(req.getParameter("Dept_Desc"));
 
 		DepartmentBean.add(department);
 

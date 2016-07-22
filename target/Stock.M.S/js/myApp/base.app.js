@@ -217,6 +217,7 @@ App.Cmp = {
 		})
 		
 		console.log('this is the stuff');
+		
 
 		form += '</div>'
 				+'</form>'
@@ -272,7 +273,7 @@ App.Cmp = {
 			updateTarget : function(resp) {
 				//console.log("loading details......almost complete")
 				me.form();
-				var result = JSON.parse(resp);
+				var result=JSON.parse(resp);
 				me.model.forEach(function(el) {
 					Object.keys(result).forEach(function(k) {
 						if (el.name == k) {
@@ -426,6 +427,14 @@ App.Cmp = {
 							"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | " +
 									"<a id=\""	+ delId + "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>" +
 											"</td>"
+									
+									if((tableUrl == './category') || (tableUrl == './department' )){
+										table += "<td>" +
+										"<a id=\"" +  + "\"><span class=\"fa fa-bars\" aria-hidden=\"true\"></span></a> | " +
+										"</td>"
+									}
+					
+					
 							
 							+'</tr>';
 					

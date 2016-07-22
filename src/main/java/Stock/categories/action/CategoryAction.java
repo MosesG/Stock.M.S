@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import Stock.categories.bean.CategoryBeanI;
 import Stock.categories.model.Category;
 
-@WebServlet("/category")
+@WebServlet("/category/*")
 public class CategoryAction extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
@@ -38,6 +38,7 @@ public class CategoryAction extends HttpServlet{
 		categories.setCat_Code(req.getParameter("cat_Code"));
 		categories.setCat_Name(req.getParameter("cat_Name"));
 		categories.setCat_Desc(req.getParameter("cat_Desc"));
+		categories.setCat_Dept(Long.parseLong(req.getParameter("cat_Dept")));
 
 		CategoryBean.add(categories);
 	}

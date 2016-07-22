@@ -217,6 +217,7 @@ App.Cmp = {
 		})
 		
 		console.log('this is the stuff');
+		
 
 		form += '</div>'
 				+'</form>'
@@ -272,7 +273,7 @@ App.Cmp = {
 			updateTarget : function(resp) {
 				//console.log("loading details......almost complete")
 				me.form();
-				var result = JSON.parse(resp);
+				var result=JSON.parse(resp);
 				me.model.forEach(function(el) {
 					Object.keys(result).forEach(function(k) {
 						if (el.name == k) {
@@ -380,6 +381,7 @@ App.Cmp = {
 		var me = this;
 		var editId;
 		var delId;
+		var list;
 		
 		me.ajaxRequest.call({
 			httpMethod: 'GET',
@@ -392,6 +394,10 @@ App.Cmp = {
 						+" <h2>"+ me.title +"<small>without any effort.</small></h2>"
 						+'<div style="float:right">'
 						+"<a id=\"" + me.form() + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
+						
+						 if (tableUrl == './sales')
+							 +"<a id=\"" + me.form() + "\"><span class=\"glyphicon glyphicon-print\" aria-hidden=\"true\"></span></a>"
+						 
 						+'</div>'
 						+'</div>'
 						+' <div class="table-responsive">'
@@ -412,6 +418,7 @@ App.Cmp = {
 				JSON.parse(resp).forEach(function(el){
 					editId = me.modelId + "-edit-" + el.id;
 					delId = me.modelId + "-del-" + el.id;
+					list = me.modelId + "-list-" + el.id;
 					
 					table += '<tr>';
 					console.log(el.id);
@@ -426,6 +433,14 @@ App.Cmp = {
 							"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | " +
 									"<a id=\""	+ delId + "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>" +
 											"</td>"
+									
+									if((tableUrl == './category') || (tableUrl == './department' )){
+										table += "<td>" +
+										"<a id=\"" + list + "\"><span class=\"fa fa-bars\" aria-hidden=\"true\"></span></a> | " +
+										"</td>"
+									}
+					
+					
 							
 							+'</tr>';
 					

@@ -19,6 +19,9 @@ public class Category {
 	@Column(name = "Cat_Name")
 	private String Cat_Name;
 	
+	@Column(name = "Cat_Dept")
+	private Long Cat_Dept;
+	
 	@Column(name = "Cat_Code")
 	private String Cat_Code;
 	
@@ -47,6 +50,14 @@ public class Category {
 
 	public void setCat_Desc(String cat_Desc) {
 		Cat_Desc = cat_Desc;
+	}
+	
+	public Long getCat_Dept() {
+		return Cat_Dept;
+	}
+
+	public void setCat_Dept(Long cat_Dept) {
+		Cat_Dept = cat_Dept;
 	}
 
 	public String getCat_Code() {

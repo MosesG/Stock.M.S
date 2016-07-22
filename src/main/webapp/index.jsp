@@ -364,21 +364,37 @@
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Products</a>
                         
                         <ul>
-                            <li><a href="#" onclick="products.init()">View Existing</a></li>
-                            <li><a href="#" onclick="products.form()">New Product</a></li>
+                             <li class="sub-menu">
+                                <a href="#" data-ma-action="submenu-toggle">View Existing</a>
+
+                                <ul>
+                                    <li><a href="#"  onclick="products.init()"> All Products</a></li>
+                                    <li><a href="#" onclick="category.init()">By Categories</a></li>
+                                    <li><a href="#" onclick="department.init()">By Departments</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class="sub-menu">
+                            <a href="#" data-ma-action="submenu-toggle">New Product</a>
+                            	<ul>
+                                    <li><a href="#"  onclick="products.form()">Add Product</a></li>
+                                    <li><a href="#" onclick="category.form()">Add Category</a></li>
+                                    <li><a href="#" onclick="department.form()">Add Department</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="zmdi zmdi-widgets"></i> Stock</a></li>
+                   
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Sales</a>
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Purchases</a>
                         
                         <ul>
-                            <li><a href="#" onclick="sales.form()">Cash</a></li>
-                            <li><a href="#">Cheques</a></li>
+                            <li><a href="#" onclick="sales.form()">New Purchase</a></li>
+                            <li><a href="#"  onclick="sales.init()">Check purchases</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-text"></i>Restock Orders</a>
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-text" onclick="products.init()"></i>Restock Orders</a>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
@@ -476,7 +492,8 @@
           <script src="js/myApp/user.js"></script>
           <script src="js/myApp/products.js"></script>
           <script src="js/myApp/sales.js"></script>
-       
+       	 <script src="js/myApp/category.js"></script>
+       	  <script src="js/myApp/departments.js"></script>
 
          <!-- Javascript Libraries -->
         <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>

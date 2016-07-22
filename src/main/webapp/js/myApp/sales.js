@@ -39,7 +39,7 @@ var sales = App.extend(App.Cmp, {
 			console.log(resp);
 			JSON.parse(resp).forEach(function(el){
 				options.push({
-					label: el.Name,
+					label: el.Prod_Name,
 					value: el.id
 				});
 			});

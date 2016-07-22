@@ -42,10 +42,10 @@
                         </div>
                     </div>
 
-                    <button class="btn palette-Teal bg">Sign in</button>
+                    <button class="btn palette-Teal bg" >Sign in</button>
 
                     <div class="m-t-20">
-                        <a data-block="#l-register" data-bg="blue" class="palette-Teal text d-block m-b-5" href="#">Creat an account</a>
+                        <a data-block="#l-register" data-bg="blue" class="palette-Teal text d-block m-b-5" href="#">Create an account</a>
                         <a data-block="#l-forget-password" data-bg="purple" href="#" class="palette-Teal text">Forgot password?</a>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                         </label>
                     </div>
 
-                    <button class="btn palette-Blue bg">Create Account</button>
+                    <button class="btn palette-Blue bg" >Create Account</button>
 
                     <div class="m-t-30">
                         <a data-block="#l-login" data-bg="teal" class="palette-Blue text d-block m-b-5" href="#">Already have an account?</a>
