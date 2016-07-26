@@ -14,6 +14,7 @@ import javax.persistence.PersistenceContext;
 
 import Stock.categories.dao.CategoryDaoI;
 import Stock.categories.model.Category;
+import Stock.departments.model.Department;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
@@ -33,6 +34,10 @@ public class CategoryBean implements CategoryBeanI{
 	public void add(Category categories){
 		if(categories == null || categories.getCat_Code() == null)
 			return;
+		
+		if(categories.getCat_Dept() != null)
+			categories.setDepatments(em.find(Department.class, 
+					categories.getCat_Dept()));
 		
 		categories = CategoryDao.save(categories);
 		
@@ -71,6 +76,7 @@ public class CategoryBean implements CategoryBeanI{
 		return true;
 	}
 	
+	
 	public String load(long id){
 		Category categories = CategoryDao.findById(id);
 		
@@ -78,6 +84,26 @@ public class CategoryBean implements CategoryBeanI{
 			return categories.getJson();
 		else
 			return "{}";
+	}
+
+	public String listfilter(Long id) {
+		List<Category> categories = CategoryDao.list(id);
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		
+		int count = CategoryDao.countAll();
+		for(Category category : categories){
+			sb.append(category.getJson());
+			
+			count --;
+			
+			if(count >= 2)
+				sb.append(",");
+		}
+		
+		sb.append("]");
+		
+		return sb.toString();
 	}
 
 }

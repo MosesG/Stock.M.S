@@ -490,10 +490,10 @@
         <![endif]-->
         	 <script src="js/myApp/base.app.js"></script>
           <script src="js/myApp/user.js"></script>
-          <script src="js/myApp/products.js"></script>
+          <script src="js/myApp/product.js"></script>
           <script src="js/myApp/sales.js"></script>
        	 <script src="js/myApp/category.js"></script>
-       	  <script src="js/myApp/departments.js"></script>
+       	  <script src="js/myApp/department.js"></script>
 
          <!-- Javascript Libraries -->
         <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>

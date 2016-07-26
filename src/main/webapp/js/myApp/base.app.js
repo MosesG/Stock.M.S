@@ -37,11 +37,9 @@ App.Cmp = {
 
 		xhr.open(me.httpMethod, me.httpUrl, me.async);
 		if (me.requestParams) {
-			//console.log("params passed: "+ me.requestParams);
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			xhr.send(me.requestParams);
 		} else
-			console.log("loading details......almost complete");
 			xhr.send();
 	},
 	validate : function() {
@@ -191,37 +189,56 @@ App.Cmp = {
 	model : [],
 	form : function() {
 		var me = this;
+		var Qnt;
+		var id;
+		
 		var form = ' <form class="form-horizontal" role="form">'
-		 			+ '<div class="card-header"><h2>Horizontal Form </h2>'
+		 			+ '<div class="card-header"><h2>'+me.title+'</h2>'
 		 			+ '</div>'
-					+ '<div class="card-body card-padding">';
+		 			+ '<div class="card-body card-padding">';
 		
 		me.model.forEach(function(el) {
-			form += '<div class="form-group">'
-					+'<label for="inputEmail3" class="col-sm-2 control-label">'+ el.label +'</label>'
-					+'<div class="col-sm-10">'
-					+'<div id="' + el.id + '_div">'
+			form += '<div class="form-group fg-float">'
+					+'<div class="fg-line">'
+					+'<label class="fg-label">'+ el.label +'</label>'
+					+'<div id="' + el.id + '_div">';
 
 			if (el.type == 'select' && el.options) {
-				form += '<select class="form-control" name="' + el.name
+				form += '<div class="select">'
+					 	+'<select class="form-control" name="' + el.name
 						+ '" id="' + el.id + '">';
 				el.options.forEach(function(opt) {
 					form += '<option value=' + opt.value + '>' + opt.label
 							+ '</option>'
 				});
-				form += '</select>';
+				form += '</select></div>';
+				
 			} else
 				form += '<input type="' + el.type
-						+ '" name="' + el.name + '" class="form-control input-sm" id="'
-						+ el.id + '"placeholder="' + el.placeholder + '" </div></div></div>';
+						+ '" name="' + el.name + '" class="input-lg form-control fg-input" id="'
+						+ el.id + '" </div></div></div></div>';
+			if(this.httpUrl  == './sales'){
+				if(el.name == 'sale_Quantity')
+					Qnt = el.value;
+				console.log(Qnt);
+				
+				if(el.name == 'prod_Name')
+					id = el.value;
+					console.log(id);
+			}
 		})
 		
-		console.log('this is the stuff');
-		
+		if(this.httpUrl  == './sales'){
+			form += '</form>'
+				+'<div class="col-sm-10"  style="float:right">'
+				+'<a class="btn btn-success" id="' + me.buy(Qnt,id)
+				+ '-save">Purchase</a>'
+				+'</div>';
 
-		form += '</div>'
-				+'</form>'
-				+'<div class="col-sm-offset-2 col-sm-10" style="float:right">'
+		}
+		else
+		form += '</form>'
+				+'<div class="col-sm-10"  style="float:right">'
 				+'<a class="btn btn-success" id="' + me.modelId
 				+ '-save">Save</a>'
 				+'</div>';
@@ -230,6 +247,24 @@ App.Cmp = {
 		me.getEl(me.modelId + '-save').addEventListener("click", function() {
 			me.validate();
 		});
+	},
+	
+	buy : function(Qnt,id){
+		var Tot;
+		var Prc;
+			this.ajaxRequest.call({
+				httpMethod : 'GET',
+				httpUrl : './product',
+				updateTarget : function(resp) {
+					JSON.parse(resp).forEach(function(el){
+						if(el.id == id)
+							Prc = el.Prod_Price;
+					});
+					console.log(Prc);
+				}
+			})
+			Tot = Qnt * Prc;	
+			console.log(Tot);
 	},
 
 	submitForm : function() {
@@ -264,14 +299,12 @@ App.Cmp = {
 	},
 	loadForm : function(id) {
 		var me = this;
-		console.log("loading details......No: "+ id +"response target : "+ me.responseTarget)
 		me.ajaxRequest.call({
 			httpMethod : me.httpMethod,
 			httpUrl : me.httpUrl + '/load?id=' + id,
 			responseTarget : me.responseTarget,
 			
 			updateTarget : function(resp) {
-				//console.log("loading details......almost complete")
 				me.form();
 				var result=JSON.parse(resp);
 				me.model.forEach(function(el) {
@@ -299,77 +332,46 @@ App.Cmp = {
 		});
 
 	},
-	listView : function() {
+	listView : function(id, tableUrl) {
 		var me = this;
-
+		var table;
+		var editId;
+		var delId;
+		console.log("this is passed: " + id);
 		me.ajaxRequest.call({
 			httpMethod : me.httpMethod,
-			httpUrl : me.httpUrl,
+			responseTarget: 'ajax-content',
+			httpUrl : me.httpUrl + '/filter?id=' + id,
+			
 			responseTarget : me.responseTarget,
+			
 			updateTarget : function(resp) {
-				var listView = "<div class=\"text-right\">";
-				listView += "<a class=\"btn btn-success\"  id=\"" + me.modelId + "-create-add-form\">Add</a>";
-				listView += "</div>";
-
-				var jsonRecords = JSON.parse(resp);
-
-				jsonRecords.forEach(function(el) {
-					var editId = me.modelId + "-edit-" + el.id;
-					var delId = me.modelId + "-del-" + el.id;
-
-					listView += "<hr>";
-					listView += "<div class=\"row\">";
-					listView += "<div class=\"col-md-12\">";
-					listView += "<span class=\"glyphicon glyphicon-star\"></span>";
-					listView += "<span class=\"glyphicon glyphicon-star\"></span>";
-					listView += "<span class=\"glyphicon glyphicon-star\"></span>";
-					listView += " <span class=\"glyphicon glyphicon-star\"></span>";
-					listView += "<span class=\"glyphicon glyphicon-star-empty\"></span>";
-					
-					if(me.columnModel)
-						var columnSeperator = ' ';
-						if(me.columnSeperator) 
-							columnSeperator = me.columnSeperator;
-						
-						var colSize = me.columnModel.length;
-						
-						me.columnModel.forEach(function(elCol){
-							listView += el[elCol];
+				me.table();
+				
+				console.log(me.httpUrl);
+				
+				var result = JSON.parse(resp);
+				
+				me.model.forEach(function(el) {
+					Object.keys(result).forEach(function(k) {
+						JSON.parse(resp).forEach(function(el){
 							
-							colSize--;
+							table += '<tr>';
+								me.model.forEach(function(model){
+									
+									table += '<td>' + result[k] + '</td>';
+								});
+								
+							table += "<td>" +
+									"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | " +
+											"<a id=\""	+ delId + "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>";
+												table += "<td>"
+													+'</tr>';
 							
-							if(colSize != 0)
-								listView += columnSeperator;
+							
 						});
-					
-					listView += "<span class=\"pull-right\">10 days ago</span>";
-					listView += "<p>This trip was great in terms of services. I would definitely recomend it to someone else.</p>";
-					listView += "</div>";
-					listView += "</div>";
-					listView += "<div class=\"text-right\">";
-					listView += "<a class=\"btn btn-primary\"  id=\"" + editId + "\">Edit</a>";
-					listView += " | <a class=\"btn btn-danger\"  id=\""	+ delId + "\">Delete</a>";
-					listView += "</div>";
-				});
-
-				if (me.getEl(me.responseTarget).innerHTML = listView) {
-					jsonRecords.forEach(function(el) {
-						var editId = me.modelId + "-edit-" + el.id;
-						var delId = me.modelId + "-del-" + el.id;
-
-						me.getEl(editId).addEventListener('click', function() {
-							me.loadForm(el.id);
-						});
-
-						me.getEl(delId).addEventListener('click', function() {
-							me.removeRec(el.id);
-						});
-					});
-					
-					me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
-						me.form();
-					});
-				}
+					})
+				})
 			}
 		});
 	},
@@ -394,10 +396,6 @@ App.Cmp = {
 						+" <h2>"+ me.title +"<small>without any effort.</small></h2>"
 						+'<div style="float:right">'
 						+"<a id=\"" + me.form() + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
-						
-						 if (tableUrl == './sales')
-							 +"<a id=\"" + me.form() + "\"><span class=\"glyphicon glyphicon-print\" aria-hidden=\"true\"></span></a>"
-						 
 						+'</div>'
 						+'</div>'
 						+' <div class="table-responsive">'
@@ -418,31 +416,29 @@ App.Cmp = {
 				JSON.parse(resp).forEach(function(el){
 					editId = me.modelId + "-edit-" + el.id;
 					delId = me.modelId + "-del-" + el.id;
-					list = me.modelId + "-list-" + el.id;
+					listId = me.modelId + "-list-" + el.id;
 					
-					table += '<tr>';
-					console.log(el.id);
-						me.model.forEach(function(model){
+					while(el[model.name] != 'id')
+						table += '<tr>';
+						console.log(el.id);
+							me.model.forEach(function(model){
+							while(el[model.name] != 'id')
+								table += '<td>' + el[model.name] + '</td>';
+							});
 							
-							console.log(el[model.name]);
-							table += '<td>' + el[model.name] + '</td>';
-						});
-						
-						
-					table += "<td>" +
-							"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | " +
-									"<a id=\""	+ delId + "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>" +
+							
+						table += "<td>" +
+								"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | " +
+										"<a id=\""	+ delId + "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>";
+										
+										if((tableUrl == './category') || (tableUrl == './department' )){
+											table += " | <a id=\"" + listId + "\"><span class=\"glyphicon glyphicon-align-justify\" aria-hidden=\"true\"></span></a>" +
 											"</td>"
-									
-									if((tableUrl == './category') || (tableUrl == './department' )){
-										table += "<td>" +
-										"<a id=\"" + list + "\"><span class=\"fa fa-bars\" aria-hidden=\"true\"></span></a> | " +
-										"</td>"
-									}
-					
-					
-							
-							+'</tr>';
+										}
+										
+										else
+											table += "<td>";
+								+'</tr>';
 					
 					
 				});
@@ -457,6 +453,7 @@ App.Cmp = {
 						console.log("passed id: "+delId);
 						editId = me.modelId + "-edit-" + el.id;
 						delId = me.modelId + "-del-" + el.id;
+						listId = me.modelId + "-list-" + el.id;
 
 						me.getEl(editId).addEventListener('click', function() {
 							me.loadForm(el.id);
@@ -464,6 +461,12 @@ App.Cmp = {
 
 						me.getEl(delId).addEventListener('click', function() {
 							me.removeRec(el.id);
+						});
+						
+						me.getEl(listId).addEventListener('click', function() {
+							if(tableUrl == './category')
+								console.log(el.Cat_DeptId);
+							me.listView(el.Cat_DeptId, tableUrl);
 						});
 					});
 					

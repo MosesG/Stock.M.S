@@ -45,10 +45,10 @@ private static final long serialVersionUID = 1L;
 			product.setId(Long.parseLong(req.getParameter("id")));
 
 		product.setProd_Cat(Long.parseLong(req.getParameter("Prod_Cat")));
-		product.setProd_Code(req.getParameter("prod_Code"));
-		product.setProd_Name(req.getParameter("prod_Name"));
-		product.setProd_Price(Double.parseDouble(req.getParameter("prod_Price")));
-		product.setStockLevel(Integer.parseInt(req.getParameter("stockLevel")));
+		product.setProd_Code(req.getParameter("Prod_Code"));
+		product.setProd_Name(req.getParameter("Prod_Name"));
+		product.setProd_Price(Double.parseDouble(req.getParameter("Prod_Price")));
+		product.setStockLevel(Integer.parseInt(req.getParameter("StockLevel")));
 		
 		ProductBean.add(product);
 

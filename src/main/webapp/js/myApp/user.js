@@ -43,6 +43,12 @@ var user = App.extend(App.Cmp, {
 		required : 'required',
 		label: 'P.O BOX'
 
+	},{
+		id: 'Id',
+		label: '',
+		name: 'id',
+		hidden: true,
+		type: 'hidden'
 	}],
 	removeRecord: true,
 	

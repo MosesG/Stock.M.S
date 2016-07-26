@@ -35,6 +35,10 @@ public class DepartmentAction extends HttpServlet{
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Department department = new Department();
+		
+		if(req.getParameter("id") != null 
+				&& !req.getParameter("id").equals("undefined"))
+			department.setId(Long.parseLong(req.getParameter("id")));
 
 		department.setDept_Code(req.getParameter("Dept_Code"));
 		department.setDept_Name(req.getParameter("Dept_Name"));

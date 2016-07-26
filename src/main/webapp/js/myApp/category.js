@@ -7,7 +7,7 @@ var category = App.extend(App.Cmp, {
 	model: [{
 		id: 'Department',
 		label: 'Department',
-		name: 'cat_Dept',
+		name: 'Cat_Dept',
 		type: 'select',
 		options: [],
 		placeholder: 'Department',
@@ -15,24 +15,30 @@ var category = App.extend(App.Cmp, {
 	},{
 		id: 'Name',
 		label: 'Category Name ',
-		name: 'cat_Name',
+		name: 'Cat_Name',
 		type: 'select',
 		placeholder: 'Category Name',
 		required: 'required'
 	},{
 		id: 'Code',
 		label: 'Code',
-		name: 'cat_Code',
+		name: 'Cat_Code',
 		type: 'text',
 		placeholder: 'Quantity',
 		required: 'required'
 	},{
 		id: 'Desc',
 		label: 'Description',
-		name: 'cat_Desc',
+		name: 'Cat_Desc',
 		type: 'text',
 		placeholder: 'Description',
 		required: 'required'
+	},{
+		id: 'Id',
+		label: '',
+		name: 'id',
+		hidden: true,
+		type: 'hidden'
 	}],
 	removeRecord: true
 });
@@ -51,7 +57,7 @@ var category = App.extend(App.Cmp, {
 				});
 			});
 			
-			sales.model[0].options = options;
+			category.model[0].options = options;
 		}
 	})
 	

@@ -16,4 +16,6 @@ void add(Category categories);
 	
 	String load(long l);
 
+	String listfilter(Long id);
+
 }

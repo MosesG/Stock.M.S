@@ -28,18 +28,26 @@ public class CategoryAction extends HttpServlet{
 		
 		if(path.equalsIgnoreCase("load"))
 			this.load(request, response);
+		
+		else if(path.equalsIgnoreCase("filter"))
+			this.listfiter(response, request);
+		
 		else
 			this.list(response);
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Category categories = new Category();
+		
+		if(req.getParameter("id") != null 
+				&& !req.getParameter("id").equals("undefined"))
+			categories.setId(Long.parseLong(req.getParameter("id")));
 
-		categories.setCat_Code(req.getParameter("cat_Code"));
-		categories.setCat_Name(req.getParameter("cat_Name"));
-		categories.setCat_Desc(req.getParameter("cat_Desc"));
-		categories.setCat_Dept(Long.parseLong(req.getParameter("cat_Dept")));
 
+		categories.setCat_Code(req.getParameter("Cat_Code"));
+		categories.setCat_Name(req.getParameter("Cat_Name"));
+		categories.setCat_Desc(req.getParameter("Cat_Desc"));
+		categories.setCat_Dept(Long.parseLong(req.getParameter("Cat_Dept")));
 		CategoryBean.add(categories);
 	}
 
@@ -52,6 +60,13 @@ public class CategoryAction extends HttpServlet{
 			throws ServletException, IOException{
 		Long id = Long.parseLong(request.getParameter("id"));
 		CategoryBean.delete(id);
+	}
+	
+	public void listfiter(HttpServletResponse response, HttpServletRequest request) 
+			throws ServletException, IOException{
+		PrintWriter responses = response.getWriter();
+		
+		responses.println(CategoryBean.listfilter(Long.parseLong(request.getParameter("id"))));
 	}
 
 	private void load(HttpServletRequest request, HttpServletResponse response) 

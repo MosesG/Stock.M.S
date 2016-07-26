@@ -4,8 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import Stock.departments.model.Department;
 
 @Entity
 @Table(name = "Category")
@@ -19,9 +23,31 @@ public class Category {
 	@Column(name = "Cat_Name")
 	private String Cat_Name;
 	
-	@Column(name = "Cat_Dept")
+	@ManyToOne
+	private Department depatments;
+	
+	public Department getDepatments() {
+		return depatments;
+	}
+
+	public void setDepatments(Department depatments) {
+		this.depatments = depatments;
+	}
+
+	@Transient
 	private Long Cat_Dept;
 	
+	@Transient
+	private Long Cat_DeptId;
+	
+	public Long getCat_DeptId() {
+		return Cat_DeptId;
+	}
+
+	public void setCat_DeptId(Long cat_DeptId) {
+		Cat_DeptId = cat_DeptId;
+	}
+
 	@Column(name = "Cat_Code")
 	private String Cat_Code;
 	
@@ -77,8 +103,10 @@ public class Category {
 		sb.append("{")
 			.append("\"id\": \"").append(getId()).append("\",")
 			.append("\"Cat_Name\": \"").append(getCat_Name()).append("\",")
-			.append("\"Cat_Code\": \"").append(getCat_Desc()).append("\",")
-			.append("\"Cat_Desc\": \"").append(getCat_Code()).append("\"");
+			.append("\"Cat_Code\": \"").append(getCat_Code()).append("\",")
+			.append("\"Cat_Dept\": \"").append(getDepatments().getDept_Name()).append("\",")
+			.append("\"Cat_DeptId\": \"").append(getDepatments().getId()).append("\",")
+			.append("\"Cat_Desc\": \"").append(getCat_Desc()).append("\"");
 		sb.append("}");
 		
 		return sb.toString();
