@@ -394,7 +394,7 @@
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-text" onclick="products.init()"></i>Restock Orders</a>
+                        <a href="#" ><i class="zmdi zmdi-collection-text" onclick="products.init2()"></i>Restock Orders</a>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>

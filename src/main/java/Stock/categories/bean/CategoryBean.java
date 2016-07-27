@@ -97,7 +97,7 @@ public class CategoryBean implements CategoryBeanI{
 			
 			count --;
 			
-			if(count >= 2)
+			if(count >= 1)
 				sb.append(",");
 		}
 		

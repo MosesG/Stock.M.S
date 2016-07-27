@@ -334,9 +334,9 @@ App.Cmp = {
 	},
 	listView : function(id, tableUrl) {
 		var me = this;
-		var table;
 		var editId;
 		var delId;
+		var formload;
 		console.log("this is passed: " + id);
 		me.ajaxRequest.call({
 			httpMethod : me.httpMethod,
@@ -346,17 +346,35 @@ App.Cmp = {
 			responseTarget : me.responseTarget,
 			
 			updateTarget : function(resp) {
-				me.table();
+				var table = '<div class="card">';
+				table += ' <div class="card-header">'
+						+" <h2>"+ me.title +"<small>without any effort.</small></h2>"
+						+'<div style="float:right">'
+						+"<a id=\"" + formload + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
+						+'</div>'
+						+'</div>'
+						+' <div class="table-responsive">'
+						+'<table id="data-table-basic" class="table table-striped">'
+						+'<thead>'
+						+'<tr>';
 				
-				console.log(me.httpUrl);
+				me.model.forEach(function(model){
+					table += '<th>' + model.label + '</th>';
+					
+				});
 				
-				var result = JSON.parse(resp);
+				table += '</tr>'
+					  + '</thead>';
 				
+				table += '<tbody>';
+				
+				var result =  JSON.parse(resp);
 				me.model.forEach(function(el) {
 					Object.keys(result).forEach(function(k) {
 						JSON.parse(resp).forEach(function(el){
 							
 							table += '<tr>';
+							
 								me.model.forEach(function(model){
 									
 									table += '<td>' + result[k] + '</td>';
@@ -372,6 +390,33 @@ App.Cmp = {
 						});
 					})
 				})
+				table += '</tbody>'
+					
+					table += '</table></div></div>';
+				
+
+				if (me.getEl(me.responseTarget).innerHTML = table) {
+					jsonRecords.forEach(function(el) {
+						console.log("passed id: "+delId);
+						editId = me.modelId + "-edit-" + el.id;
+						delId = me.modelId + "-del-" + el.id;
+						listId = me.modelId + "-list-" + el.id;
+
+						me.getEl(editId).addEventListener('click', function() {
+							me.loadForm(el.id);
+						});
+
+						me.getEl(delId).addEventListener('click', function() {
+							me.removeRec(el.id);
+						});
+						
+					});
+					
+					me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
+						me.form();
+					});
+				}
+					
 			}
 		});
 	},
@@ -384,18 +429,19 @@ App.Cmp = {
 		var editId;
 		var delId;
 		var list;
+		var formload;
 		
+		me.restock();
 		me.ajaxRequest.call({
 			httpMethod: 'GET',
 			httpUrl: tableUrl,
 			responseTarget: me.responseTarget,
 			updateTarget: function(resp){
-				
 				var table = '<div class="card">';
 				table += ' <div class="card-header">'
 						+" <h2>"+ me.title +"<small>without any effort.</small></h2>"
 						+'<div style="float:right">'
-						+"<a id=\"" + me.form() + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
+						+"<a id=\"" + formload + "\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></a>"
 						+'</div>'
 						+'</div>'
 						+' <div class="table-responsive">'
@@ -412,17 +458,16 @@ App.Cmp = {
 					  + '</thead>';
 				
 				table += '<tbody>';
-				console.log(JSON.parse(resp));
+
 				JSON.parse(resp).forEach(function(el){
+					
 					editId = me.modelId + "-edit-" + el.id;
 					delId = me.modelId + "-del-" + el.id;
 					listId = me.modelId + "-list-" + el.id;
 					
-					while(el[model.name] != 'id')
 						table += '<tr>';
 						console.log(el.id);
 							me.model.forEach(function(model){
-							while(el[model.name] != 'id')
 								table += '<td>' + el[model.name] + '</td>';
 							});
 							
@@ -463,6 +508,10 @@ App.Cmp = {
 							me.removeRec(el.id);
 						});
 						
+						me.getEl(formload).addEventListener('click', function() {
+							me.form();
+						});
+						
 						me.getEl(listId).addEventListener('click', function() {
 							if(tableUrl == './category')
 								console.log(el.Cat_DeptId);
@@ -474,12 +523,70 @@ App.Cmp = {
 						me.form();
 					});
 				}
-				//me.getEl(me.responseTarget).innerHTML = table;
 			}
 		});
 },
+
+	restock: function(){
+		var me = this;
+		
+		me.ajaxRequest.call({
+			httpMethod: 'GET',
+			httpUrl: './product',
+			responseTarget: 'ajax-content',
+			updateTarget: function(resp){
+				var table = '<div class="card">';
+				table += ' <div class="card-header">'
+					+" <h2>"+ me.title +"<small>without any effort.</small></h2>"
+					+'</div>'
+					+' <div class="table-responsive">'
+					+'<table id="data-table-basic" class="table table-striped">'
+					+'<thead>'
+				  	+'<tr>'
+					+ '<th>Id</th>'
+					+ '<th>Name</th>'
+					+ '<th>Stock Available</th>';
+					+ '<th>Resock</th>'
+					+'</tr>'
+					+ '</thead>';
+			
+			table += '<tbody>';
+			table += '<tr>';
+
+				var jsonRecords = JSON.parse(resp);
+				
+					jsonRecords.forEach(function(el) {
+						
+						var editId = el.id;
+						var stock = el.StockLevel;
+						var product = el.Prod_Name;
+						table += '<td>' + editId + '</td>';
+						table += '<td>' + product + '</td>';
+						table += '<td>' + stock + '</td>';
+						
+						table += "<td>" +
+						"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span></a>" +
+						"</td>"
+								+"</tr>"
+						
+						console.log("passed id in restock: "+ editId);
+						console.log("passed StockLevel in restock: "+ stock);
+					});
+					
+			table += '</tbody>'
+			table += '</table></div></div>';
+			
+			me.getEl(me.responseTarget).innerHTML = table
+			}
+		})
+},
+
 	init : function() {
 		this.table(this.httpUrl);
+	},
+	
+	init2 : function() {
+		this.restock();
 	}
 };
 

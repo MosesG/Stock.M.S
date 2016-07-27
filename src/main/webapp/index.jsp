@@ -394,7 +394,7 @@
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-text" onclick="products.init()"></i>Restock Orders</a>
+                        <a href="#" ><i class="zmdi zmdi-collection-text" onclick="restock.init2()"></i>Restock Orders</a>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
@@ -494,6 +494,7 @@
           <script src="js/myApp/sales.js"></script>
        	 <script src="js/myApp/category.js"></script>
        	  <script src="js/myApp/department.js"></script>
+       	   <script src="js/myApp/restock.js"></script>
 
          <!-- Javascript Libraries -->
         <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
