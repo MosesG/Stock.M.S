@@ -4,8 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "Sales")
@@ -59,7 +59,7 @@ public class Sales {
 		StringBuilder sb = new StringBuilder();
 		sb.append("{")
 			.append("\"id\": \"").append(getId()).append("\",")
-			.append("\"Prod_Id\": \"").append(getProd_Id()).append("\",")
+			.append("\"Prod_Id\": \"").append(getSale_Quantity()).append("\",")
 			.append("\"Sale_Quantity\": \"").append(getSale_Quantity()).append("\",")
 			.append("\"Sale_Price\": \"").append(getSale_Price()).append("\"");
 		sb.append("}");

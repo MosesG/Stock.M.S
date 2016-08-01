@@ -44,6 +44,9 @@ var products = App.extend(App.Cmp, {
 	}],
 	removeRecord: true
 });
+(function(){
+	products.init();
+})();
 
 (function(){
 	products.ajaxRequest.call({

@@ -236,6 +236,21 @@ App.Cmp = {
 				+'</div>';
 
 		}
+		else if(this.httpUrl == './register'){
+			form += '</form>'
+				+'<div class="col-sm-10"  style="float:right">'
+				+'<a class="btn btn-success" id="' + me.modelId
+				+ '-save">finish</a> | '
+				+'<a class="btn btn-success" onclick ="login.form()">sign in</a>'
+				+'</div>';
+		}
+		else if(this.httpUrl == './login'){
+			form += '</form>'
+				+'<div class="col-sm-10"  style="float:right">'
+				+'<a class="btn btn-success" href="index.jsp">Login</a> | '
+				+'<a class="btn btn-success" onclick ="register.form()">Register</a>'
+				+'</div>';
+		}
 		else
 		form += '</form>'
 				+'<div class="col-sm-10"  style="float:right">'
@@ -431,7 +446,7 @@ App.Cmp = {
 		var list;
 		var formload;
 		
-		me.restock();
+	
 		me.ajaxRequest.call({
 			httpMethod: 'GET',
 			httpUrl: tableUrl,
@@ -473,10 +488,11 @@ App.Cmp = {
 							
 							
 						table += "<td>" +
+						
 								"<a id=\"" + editId + "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | " +
 										"<a id=\""	+ delId + "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>";
 										
-										if((tableUrl == './category') || (tableUrl == './department' )){
+										if((tableUrl == './category') || (tableUrl == './product' )){
 											table += " | <a id=\"" + listId + "\"><span class=\"glyphicon glyphicon-align-justify\" aria-hidden=\"true\"></span></a>" +
 											"</td>"
 										}
@@ -495,7 +511,9 @@ App.Cmp = {
 				
 				if (me.getEl(me.responseTarget).innerHTML = table) {
 					jsonRecords.forEach(function(el) {
+						
 						console.log("passed id: "+delId);
+						
 						editId = me.modelId + "-edit-" + el.id;
 						delId = me.modelId + "-del-" + el.id;
 						listId = me.modelId + "-list-" + el.id;
@@ -527,13 +545,33 @@ App.Cmp = {
 		});
 },
 
+login: function(){
+	var me = this;
+	
+	me.ajaxRequest.call({
+		httpMethod: 'GET',
+		httpUrl: './user',
+		responseTarget: me.responseTarget,
+		updateTarget: function(resp){
+			
+			var jsonRecords = JSON.parse(resp);
+			
+				jsonRecords.forEach(function(el) {
+					
+					
+					console.log("out: "+ jsonRecords);
+				});
+		}
+	})
+},
+
 	restock: function(){
 		var me = this;
 		
 		me.ajaxRequest.call({
 			httpMethod: 'GET',
 			httpUrl: './product',
-			responseTarget: 'ajax-content',
+			responseTarget: me.responseTarget,
 			updateTarget: function(resp){
 				var table = '<div class="card">';
 				table += ' <div class="card-header">'
@@ -586,7 +624,11 @@ App.Cmp = {
 	},
 	
 	init2 : function() {
-		this.restock();
+		this.restock('./product');
+	},
+	
+	init3 : function(){
+		this.form();
 	}
 };
 

@@ -20,6 +20,7 @@
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/receipt/model/Receipt.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/sales/bean/SalesBeanI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/sales/bean/SalesBean.java
+/home/mozzay/workspace/Stock.M.S/src/main/java/Stock/categories/soapapi/SoapApi.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/sales/model/Sales.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/GenericDao/GenericDaoI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/action/UserAction.java
@@ -29,8 +30,11 @@
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/bean/UserBeanI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/departments/dao/DepartmentDaoI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/bean/UserBean.java
+/home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/action/LoginAction.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/dao/UserDao.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/products/dao/ProductDao.java
+/home/mozzay/workspace/Stock.M.S/src/main/java/Stock/categories/restapi/RestApi.java
+/home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/action/RegisterAction.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/categories/dao/CategoryDaoI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/products/model/Product.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/GenericDao/GenericDao.java

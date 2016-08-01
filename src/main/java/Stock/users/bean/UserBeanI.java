@@ -15,4 +15,6 @@ public interface UserBeanI {
 	String listInJson();
 	
 	String load(long l);
+
+	Boolean login(String username, String password);
 }

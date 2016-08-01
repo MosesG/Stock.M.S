@@ -37,7 +37,12 @@ public class UserAction extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Users user = new Users();
+		
+		if(req.getParameter("id") != null 
+				&& !req.getParameter("id").equals("undefined"))
+			user.setId(Long.parseLong(req.getParameter("id")));
 
+		
 		user.setUser_Name(req.getParameter("User_Name"));
 		user.setUser_Password(req.getParameter("User_Password"));
 		user.setUser_Email(req.getParameter("User_Email"));
@@ -45,7 +50,7 @@ public class UserAction extends HttpServlet{
 		user.setUser_Box(req.getParameter("User_Box"));
 
 		UserBean.add(user);
-
+		
 	}
 
 	private void list(HttpServletResponse response) throws ServletException, IOException {
@@ -55,8 +60,8 @@ public class UserAction extends HttpServlet{
 	
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
-		Long userid = Long.parseLong(request.getParameter("id"));
-		UserBean.delete(userid);
+		Long id = Long.parseLong(request.getParameter("id"));
+		UserBean.delete(id);
 	}
 	
 	private void load(HttpServletRequest request, HttpServletResponse response) 

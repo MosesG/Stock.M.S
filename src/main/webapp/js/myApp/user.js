@@ -28,20 +28,20 @@ var user = App.extend(App.Cmp, {
 		label: 'Phone Number'
 
 	},{
-		id : 'password',
-		name : 'User_Password',
-		placeholder : 'Enter the name of your town here',
-		type : 'password',
-		required : 'required',
-		label: 'password'
-
-	},{
 		id : 'box',
 		name : 'User_Box',
 		placeholder : 'Enter your postal adress here',
 		type : 'box',
 		required : 'required',
 		label: 'P.O BOX'
+
+	},{
+		id : 'password',
+		name : 'User_Password',
+		placeholder : 'Enter the name of your town here',
+		type : 'password',
+		required : 'required',
+		label: 'password'
 
 	},{
 		id: 'Id',
@@ -54,5 +54,20 @@ var user = App.extend(App.Cmp, {
 	
 });
 (function(){
-	user.init();
+	user.table();
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

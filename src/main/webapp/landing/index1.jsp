@@ -79,7 +79,7 @@
                         <ul class="list-inline intro-social-buttons">
                             
                             <li>
-                                <a href="#" class="btn btn-default btn-lg" onclick="index.jsp"><i class="fa fa-github fa-fw"></i> <span class="network-name">Get Started</span></a>
+                                <a href="./index.jsp" class="btn btn-default btn-lg" ><i class="fa fa-github fa-fw"></i> <span class="network-name">Get Started</span></a>
                             </li>
                             
                         </ul>

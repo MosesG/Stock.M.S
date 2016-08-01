@@ -28,26 +28,9 @@
                 </div>
 
                 <div class="lb-body">
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="text" class="input-sm form-control fg-input" required>
-                            <label class="fg-label">Email Address</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="password" class="input-sm form-control fg-input" required>
-                            <label class="fg-label">Password</label>
-                        </div>
-                    </div>
-
-                    <button class="btn palette-Teal bg" >Sign in</button>
-
-                    <div class="m-t-20">
-                        <a data-block="#l-register" data-bg="blue" class="palette-Teal text d-block m-b-5" href="#">Create an account</a>
-                        <a data-block="#l-forget-password" data-bg="purple" href="#" class="palette-Teal text">Forgot password?</a>
-                    </div>
+                
+        		<div id = "login-form"></div>
+        		
                 </div>
             </div>
 
@@ -59,27 +42,9 @@
                 </div>
 
                 <div class="lb-body">
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="text" class="input-sm form-control fg-input">
-                            <label class="fg-label">Name</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="text" class="input-sm form-control fg-input">
-                            <label class="fg-label">Email Address</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="password" class="input-sm form-control fg-input">
-                            <label class="fg-label">Password</label>
-                        </div>
-                    </div>
-
+                
+                <div id= "register-form"></div>
+                
                     <div class="checkbox m-b-30">
                         <label>
                             <input type="checkbox" value="">
@@ -87,8 +52,8 @@
                             Accept the license agreement
                         </label>
                     </div>
-
-                    <button class="btn palette-Blue bg" >Create Account</button>
+					
+                    <button class="btn palette-Blue bg" onclick="user.save()">Create Account</button>
 
                     <div class="m-t-30">
                         <a data-block="#l-login" data-bg="teal" class="palette-Blue text d-block m-b-5" href="#">Already have an account?</a>
@@ -168,6 +133,13 @@
         <![endif]-->
 
         <!-- Javascript Libraries -->
+         <script src="js/myApp/base.app.js"></script>
+          <script src="js/myApp/user.js"></script>
+           <script src="js/myApp/login.js"></script>
+          <script src="js/myApp/register.js"></script>
+         
+          
+        
         <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>

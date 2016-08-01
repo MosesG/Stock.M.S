@@ -358,7 +358,7 @@
                         <a href="index.jsp"><i class="zmdi zmdi-home"></i> Home</a>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> Accounts</a>
+                        <a href="#" data-ma-action="submenu-toggle" onclick="sales.init()"><i class="zmdi zmdi-view-compact"></i> Accounts</a>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Products</a>

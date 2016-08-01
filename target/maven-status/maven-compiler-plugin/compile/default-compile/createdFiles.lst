@@ -10,6 +10,7 @@ Stock/GenericDao/GenericDaoI.class
 Stock/categories/action/CategoryAction.class
 Stock/receipt/dao/ReceiptDao.class
 Stock/users/model/Users.class
+Stock/categories/soapapi/SoapApi.class
 Stock/products/model/Product.class
 Stock/categories/dao/CategoryDaoI.class
 Stock/receipt/action/ReceiptAction.class
@@ -22,9 +23,11 @@ Stock/sales/bean/SalesBeanI.class
 Stock/users/dao/UserDao.class
 Stock/products/dao/ProductDaoI.class
 Stock/sales/model/Sales.class
+Stock/categories/restapi/RestApi.class
 Stock/categories/bean/CategoryBeanI.class
 Stock/products/bean/ProductBeanI.class
 Stock/users/dao/UserDaoI.class
+Stock/users/action/RegisterAction.class
 Stock/departments/model/Department.class
 Stock/sales/dao/SalesDaoI.class
 Stock/products/action/ProductAction.class
@@ -32,6 +35,7 @@ Stock/departments/bean/DepartmentBeanI.class
 Stock/receipt/bean/ReceiptBean.class
 Stock/departments/bean/DepartmentBean.class
 Stock/categories/bean/CategoryBean.class
+Stock/users/action/LoginAction.class
 Stock/departments/dao/DepartmentDaoI.class
 Stock/sales/action/SalesAction.class
 Stock/departments/dao/DepartmentDao.class
