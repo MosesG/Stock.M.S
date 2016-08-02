@@ -30,6 +30,7 @@
                 <div class="lb-body">
                 
         		<div id = "login-form"></div>
+        		<span style="color:red" id = "error">incorrect details</span>
         		
                 </div>
             </div>

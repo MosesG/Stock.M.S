@@ -49,6 +49,11 @@ App.Cmp = {
 		me.nullChecker();
 		me.numberChecker();
 		me.mailChecker();
+		
+		if(this.httpUrl == './login')
+			me.login();
+		
+		
 		me.submitForm();
 	},
 	number : true,
@@ -247,7 +252,8 @@ App.Cmp = {
 		else if(this.httpUrl == './login'){
 			form += '</form>'
 				+'<div class="col-sm-10"  style="float:right">'
-				+'<a class="btn btn-success" href="index.jsp">Login</a> | '
+				+'<a class="btn btn-success" id="' + me.modelId
+				+ '-save">login</a> | '
 				+'<a class="btn btn-success" onclick ="register.form()">Register</a>'
 				+'</div>';
 		}
@@ -261,25 +267,11 @@ App.Cmp = {
 		me.updateTarget(form);
 		me.getEl(me.modelId + '-save').addEventListener("click", function() {
 			me.validate();
+			
+			if(this.httpUrl == './login')
+				me.login();
 		});
-	},
-	
-	buy : function(Qnt,id){
-		var Tot;
-		var Prc;
-			this.ajaxRequest.call({
-				httpMethod : 'GET',
-				httpUrl : './product',
-				updateTarget : function(resp) {
-					JSON.parse(resp).forEach(function(el){
-						if(el.id == id)
-							Prc = el.Prod_Price;
-					});
-					console.log(Prc);
-				}
-			})
-			Tot = Qnt * Prc;	
-			console.log(Tot);
+		
 	},
 
 	submitForm : function() {
@@ -545,25 +537,42 @@ App.Cmp = {
 		});
 },
 
-login: function(){
-	var me = this;
-	
-	me.ajaxRequest.call({
-		httpMethod: 'GET',
-		httpUrl: './user',
-		responseTarget: me.responseTarget,
-		updateTarget: function(resp){
-			
-			var jsonRecords = JSON.parse(resp);
-			
-				jsonRecords.forEach(function(el) {
-					
-					
-					console.log("out: "+ jsonRecords);
-				});
+		login : function() {
+		var me = this;
+		if (me.Null == false && me.email == true && me.number == true) {
+			var typedEmail = document.getElementById("email").value;
+			var typedPassword = document.getElementById("password").value;
+			me.ajaxRequest.call({
+				httpMethod : 'GET',
+				httpUrl : './user',
+				responseTarget : me.responseTarget,
+				updateTarget : function(resp) {
+
+					var jsonRecords = JSON.parse(resp);
+
+					jsonRecords.forEach(function(el) {
+
+						if (el.User_Email == typedEmail) {
+							console.log(typedEmail + " Already Exists.....checking password....");
+							
+							if (el.User_Password == typedPassword){
+								console.log("Correct Password");
+								var successUrl = "index.jsp"; 
+								window.location.href = successUrl;
+							}
+							else
+								console.log("Incorrect Password");
+							
+						} else {
+							console.log(typedEmail + " DOesnt Exists");
+							document.getElementById("error").innerHtml;
+						}
+
+					});
+				}
+			})
 		}
-	})
-},
+	},
 
 	restock: function(){
 		var me = this;
