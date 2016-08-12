@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import Stock.users.bean.UserBeanI;
 import Stock.users.model.Users;
 
-
-
 @WebServlet("/user/*")
 public class UserAction extends HttpServlet{
 	
@@ -48,6 +46,9 @@ public class UserAction extends HttpServlet{
 		user.setUser_Email(req.getParameter("User_Email"));
 		user.setUser_PhoneNo(req.getParameter("User_PhoneNo"));
 		user.setUser_Box(req.getParameter("User_Box"));
+		user.setUser_Status("Admin");
+		
+		System.out.println(req.getParameter("User_Status"));
 
 		UserBean.add(user);
 		

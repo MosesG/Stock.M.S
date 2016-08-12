@@ -30,7 +30,7 @@ var user = App.extend(App.Cmp, {
 	},{
 		id : 'box',
 		name : 'User_Box',
-		placeholder : 'Enter your postal adress here',
+		placeholder : 'Enter your postal address here',
 		type : 'box',
 		required : 'required',
 		label: 'P.O BOX'
@@ -42,6 +42,13 @@ var user = App.extend(App.Cmp, {
 		type : 'password',
 		required : 'required',
 		label: 'password'
+
+	},{
+		id : 'status',
+		name : 'User_Status',
+		placeholder : 'stuff status',
+		type : 'checkbox',
+		label: 'Status'
 
 	},{
 		id: 'Id',

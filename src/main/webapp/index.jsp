@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Material Admin</title>
+        <title>Stock Management</title>
         
         
         <!-- Vendor CSS -->
@@ -26,8 +26,8 @@
         <header id="header" class="media">
             <div class="pull-left h-logo">
                 <a href="index.html" class="hidden-xs">
-                    Material   
-                    <small>admin extended</small>
+                    StockMan System   
+                    <small>Regular.</small>
                 </a>
                 
                 <div class="menu-collapse" data-ma-action="sidebar-open" data-ma-target="main-menu">
@@ -126,7 +126,7 @@
                             <a href="#"><i class="zmdi zmdi-settings"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="#"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                            <a href="login.jsp"><i class="zmdi zmdi-time-restore"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -354,12 +354,9 @@
                 </ul>
 
                 <ul class="main-menu">
-                    <li class="active">
+                    <li class="active" >
                         <a href="index.jsp"><i class="zmdi zmdi-home"></i> Home</a>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle" onclick="sales.init()"><i class="zmdi zmdi-view-compact"></i> Accounts</a>
-                    </li>
+                    </li >
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Products</a>
                         
@@ -394,17 +391,12 @@
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" ><i class="zmdi zmdi-collection-text" onclick="restock.init2()"></i>Restock Orders</a>
+                        <a href="#" onclick="restock.init2()"><i class="zmdi zmdi-collection-text" ></i>Restock Orders</a>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
                     </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Reports</a>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle" onclick="user.form()"><i class="zmdi zmdi-swap-alt"></i>Stuff</a>
-                    </li>
+                    
                 </ul>
             </aside>
 
@@ -424,7 +416,7 @@
 		</section>
 
 		<footer id="footer">
-                Copyright &copy; 2015 Material Admin
+                Copyright &copy; 2016 Stock Management System
 
                 <ul class="f-menu">
                     <li><a href="#">Home</a></li>

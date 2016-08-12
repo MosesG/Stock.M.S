@@ -27,7 +27,7 @@
             <div class="pull-left h-logo">
                 <a href="index.html" class="hidden-xs">
                     StockMan System   
-                    <small>Regular.</small>
+                    <small>admin extended</small>
                 </a>
                 
                 <div class="menu-collapse" data-ma-action="sidebar-open" data-ma-target="main-menu">
@@ -357,6 +357,9 @@
                     <li class="active" >
                         <a href="index.jsp"><i class="zmdi zmdi-home"></i> Home</a>
                     </li >
+                    <li class="sub-menu" >
+                        <a href="#" data-ma-action="submenu-toggle" onclick="sales.init()"><i class="zmdi zmdi-view-compact" ></i> Accounts</a>
+                    </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Products</a>
                         
@@ -391,12 +394,17 @@
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" onclick="restock.init2()"><i class="zmdi zmdi-collection-text" ></i>Restock Orders</a>
+                        <a href="#" ><i class="zmdi zmdi-collection-text" onclick="restock.init2()"></i>Restock Orders</a>
                     </li>
                     <li class="sub-menu">
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
                     </li>
-                    
+                    <li class="sub-menu" >
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt" ></i>Reports</a>
+                    </li>
+                    <li class="sub-menu" >
+                        <a href="#" data-ma-action="submenu-toggle" onclick="user.init()"><i class="zmdi zmdi-swap-alt" ></i>Stuff</a>
+                    </li>
                 </ul>
             </aside>
 

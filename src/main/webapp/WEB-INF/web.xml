@@ -7,8 +7,9 @@
   <display-name>Stock.M.S - Stock Management Application</display-name>
  
  	<welcome-file-list>
-
+	
  	<welcome-file>login.jsp</welcome-file>
+ 	<welcome-file>landing/index.html</welcome-file>
 	</welcome-file-list>
 	
 	<servlet>

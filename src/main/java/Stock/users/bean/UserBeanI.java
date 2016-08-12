@@ -16,5 +16,4 @@ public interface UserBeanI {
 	
 	String load(long l);
 
-	Boolean login(String username, String password);
 }

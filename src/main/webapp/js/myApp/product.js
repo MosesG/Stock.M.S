@@ -41,6 +41,12 @@ var products = App.extend(App.Cmp, {
 		type: 'text',
 		placeholder: 'Quantity in store',
 		required: 'required'
+	},{
+		id: 'Id',
+		label: '',
+		name: 'id',
+		hidden: true,
+		type: 'hidden'
 	}],
 	removeRecord: true
 });

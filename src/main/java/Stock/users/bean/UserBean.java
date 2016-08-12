@@ -61,19 +61,6 @@ public class UserBean implements UserBeanI{
 		
 		return sb.toString();
 	}
-	public Boolean login(String username, String password) {
-
-		Boolean authentication = UserDao.login(username, password);
-		if(authentication == true){
-			return true;
-		}
-		else
-		{
-
-			return false;
-		}
-
-	}
 	
 	public List<Users> list() {
 		return UserDao.list(new Users());

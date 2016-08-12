@@ -22,6 +22,17 @@ public class Sales {
 	
 	@Column(name = "Prod_Id")
 	private Long Prod_Id;
+	
+	@Column(name = "Sale_Time", columnDefinition = "DATE" )
+	private String Sale_Time;
+
+	public String getSale_Time() {
+		return Sale_Time;
+	}
+
+	public void setSale_Time(String sale_Time) {
+		Sale_Time = sale_Time;
+	}
 
 	public Long getId() {
 		return Id;
@@ -61,7 +72,8 @@ public class Sales {
 			.append("\"id\": \"").append(getId()).append("\",")
 			.append("\"Prod_Id\": \"").append(getSale_Quantity()).append("\",")
 			.append("\"Sale_Quantity\": \"").append(getSale_Quantity()).append("\",")
-			.append("\"Sale_Price\": \"").append(getSale_Price()).append("\"");
+			.append("\"Sale_Price\": \"").append(getSale_Price()).append("\",")
+			.append("\"sale_Time\": \"").append(getSale_Price()).append("\"");
 		sb.append("}");
 		
 		return sb.toString();

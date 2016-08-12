@@ -31,6 +31,9 @@ public class Users implements Serializable {
 	
 	@Column(name = "User_Box")
 	private String User_Box;
+	
+	@Column(name = "User_Status")
+	private String User_Status;
 
 	public Long getId() {
 		return Id;
@@ -68,6 +71,14 @@ public class Users implements Serializable {
 		return User_PhoneNo;
 	}
 
+	public String getUser_Status() {
+		return User_Status;
+	}
+
+	public void setUser_Status(String user_Status) {
+		User_Status = user_Status;
+	}
+
 	public void setUser_PhoneNo(String user_PhoneNo) {
 		User_PhoneNo = user_PhoneNo;
 	}
@@ -88,6 +99,7 @@ public class Users implements Serializable {
 			.append("\"User_Password\": \"").append(getUser_Password()).append("\",")
 			.append("\"User_Email\": \"").append(getUser_Email()).append("\",")
 			.append("\"User_PhoneNo\": \"").append(getUser_PhoneNo()).append("\",")
+			.append("\"User_Status\": \"").append(getUser_Status()).append("\",")
 			.append("\"User_Box\": \"").append(getUser_Box()).append("\"");
 		sb.append("}");
 		

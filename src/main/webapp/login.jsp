@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Material Admin</title>
+        <title>StockMan System</title>
         
         <!-- Vendor CSS -->
         <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
@@ -28,9 +28,9 @@
                 </div>
 
                 <div class="lb-body">
-                
+                <span style="color:red; visibility:hidden; " id = "error">Incorrect login details!</span>
         		<div id = "login-form"></div>
-        		<span style="color:red" id = "error">incorrect details</span>
+        		
         		
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <div class="lb-body">
                 
                 <div id= "register-form"></div>
-                
+                <span style="color:red; visibility:hidden; " id = "error2">Password Mismatch!</span>
                     <div class="checkbox m-b-30">
                         <label>
                             <input type="checkbox" value="">

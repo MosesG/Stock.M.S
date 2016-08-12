@@ -1,8 +1,7 @@
 var sales = App.extend(App.Cmp, {
 	modelId: 'sales',
 	httpUrl: './sales',
-	responseTarget: 'ajax-content',
-	columnModel: ['name'],
+	responseTarget: 'login-form',
 	title:'sales',	
 	model: [{
 		id: 'Product',
@@ -25,9 +24,16 @@ var sales = App.extend(App.Cmp, {
 		name: 'Sale_Price',
 		hidden: true,
 		type: 'hidden'
+	},{
+		id: 'Time',
+		label: '',
+		name: 'Sale_Time',
+		hidden: true,
+		type: 'hidden'
 	}],
 	removeRecord: true
 });
+
 (function(){
 	sales.ajaxRequest.call({
 		httpMethod : 'GET',
