@@ -386,7 +386,7 @@
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Purchases</a>
                         
                         <ul>
-                            <li><a href="#" onclick="sales.form()">New Purchase</a></li>
+                            <li><a href="purchase.jsp" >New Purchase</a></li>
                             <li><a href="#"  onclick="sales.init()">Check purchases</a></li>
                         </ul>
                     </li>
@@ -487,6 +487,7 @@
        	 <script src="js/myApp/category.js"></script>
        	  <script src="js/myApp/department.js"></script>
        	   <script src="js/myApp/restock.js"></script>
+       	   <script src="js/myApp/purchase.js"></script>
 
          <!-- Javascript Libraries -->
         <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>

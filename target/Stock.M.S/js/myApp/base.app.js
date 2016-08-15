@@ -249,17 +249,25 @@ App.Cmp = {
 					+ '<a class="btn btn-success" id="'
 					+ me.modelId
 					+ '-save">finish</a> | '
-					+ '<a class="btn btn-success" onclick ="login.form()">sign in</a>'
+					+ '<a  class="btn palette-Blue bg" onclick ="login.form()">sign in</a>'
 					+ '</div>';
 		} else if (this.httpUrl == './login') {
 			form += '</form>'
 					+ '<div class="col-sm-10"  style="float:right">'
-					+ '<a class="btn btn-success" id="'
+					+ '<a class="btn palette-Teal bg" id="'
 					+ me.modelId
 					+ '-save">login</a> | '
-					+ '<a class="btn btn-success" onclick ="register.form()">Register</a>'
+					+ '<a  class="btn palette-Blue bg" onclick ="register.form()">Register</a>'
 					+ '</div>';
-		} else if (this.httpUrl == './sales') {
+		} else if (this.httpUrl == './purchase') {
+			form += '</form>'
+				+ '<div class="col-sm-10"  style="align:center">'
+				+ '<a class="btn btn-success" id="'
+				+ me.modelId
+				+ '-save">Purchase</a> | '
+				+ '<a class="btn palette-Teal bg" href ="index.jsp">Cancel</a>'
+				+ '</div>';
+	} else if (this.httpUrl == './sales') {
 			form += '</form>'
 				+ '<div class="col-sm-10"  style="float:right">'
 				+ '<a class="btn btn-success" id="'

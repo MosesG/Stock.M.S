@@ -1,14 +1,13 @@
 var sales = App.extend(App.Cmp, {
 	modelId: 'sales',
 	httpUrl: './sales',
-	responseTarget: 'login-form',
+	responseTarget: 'ajax-content',
 	title:'sales',	
 	model: [{
 		id: 'Product',
 		label: 'product ',
 		name: 'prod_Name',
 		type: 'select',
-		options: [],
 		placeholder: 'name of product',
 		required: 'required'
 	},{

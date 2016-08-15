@@ -28,6 +28,7 @@ Stock/categories/bean/CategoryBeanI.class
 Stock/products/bean/ProductBeanI.class
 Stock/users/dao/UserDaoI.class
 Stock/users/action/RegisterAction.class
+Stock/sales/action/PurchaseAction.class
 Stock/departments/model/Department.class
 Stock/sales/dao/SalesDaoI.class
 Stock/products/action/ProductAction.class

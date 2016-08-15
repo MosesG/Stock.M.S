@@ -31,7 +31,6 @@
                 <span style="color:red; visibility:hidden; " id = "error">Incorrect login details!</span>
         		<div id = "login-form"></div>
         		
-        		
                 </div>
             </div>
 
@@ -43,8 +42,8 @@
                 </div>
 
                 <div class="lb-body">
-                
                 <div id= "register-form"></div>
+                
                 <span style="color:red; visibility:hidden; " id = "error2">Password Mismatch!</span>
                     <div class="checkbox m-b-30">
                         <label>
@@ -90,54 +89,14 @@
             </div>
         </div>
 
-        <!-- Older IE warning message -->
-        <!--[if lt IE 9]>
-            <div class="ie-warning">
-                <h1 class="c-white">Warning!!</h1>
-                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-                <div class="iew-container">
-                    <ul class="iew-download">
-                        <li>
-                            <a href="http://www.google.com/chrome/">
-                                <img src="img/browsers/chrome.png" alt="">
-                                <div>Chrome</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.mozilla.org/en-US/firefox/new/">
-                                <img src="img/browsers/firefox.png" alt="">
-                                <div>Firefox</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.opera.com">
-                                <img src="img/browsers/opera.png" alt="">
-                                <div>Opera</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.apple.com/safari/">
-                                <img src="img/browsers/safari.png" alt="">
-                                <div>Safari</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                                <img src="img/browsers/ie.png" alt="">
-                                <div>IE (New)</div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <p>Sorry for the inconvenience!</p>
-            </div>
-        <![endif]-->
+       
 
         <!-- Javascript Libraries -->
          <script src="js/myApp/base.app.js"></script>
           <script src="js/myApp/user.js"></script>
            <script src="js/myApp/login.js"></script>
           <script src="js/myApp/register.js"></script>
+          <script src="js/myApp/purchase.js"></script>
          
           
         

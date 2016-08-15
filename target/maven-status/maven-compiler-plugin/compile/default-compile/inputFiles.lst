@@ -27,6 +27,7 @@
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/sales/dao/SalesDaoI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/departments/model/Department.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/categories/model/Category.java
+/home/mozzay/workspace/Stock.M.S/src/main/java/Stock/sales/action/PurchaseAction.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/bean/UserBeanI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/departments/dao/DepartmentDaoI.java
 /home/mozzay/workspace/Stock.M.S/src/main/java/Stock/users/bean/UserBean.java
