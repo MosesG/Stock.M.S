@@ -18,12 +18,6 @@ var purchase = App.extend(App.Cmp, {
 		type: 'text',
 		placeholder: 'Quantity',
 		required: 'required'
-	},{
-		id: 'Price',
-		label: '',
-		name: 'Sale_Price',
-		hidden: true,
-		type: 'hidden'
 	}],
 	removeRecord: true,
 });

@@ -23,7 +23,7 @@ var products = App.extend(App.Cmp, {
 		id: 'Price',
 		label: 'Price',
 		name: 'Prod_Price',
-		type: 'text',
+		type: 'number',
 		placeholder: 'price of product',
 		required: 'required'
 	},{
@@ -38,7 +38,7 @@ var products = App.extend(App.Cmp, {
 		id: 'Stock',
 		label: 'Stock',
 		name: 'StockLevel',
-		type: 'text',
+		type: 'number',
 		placeholder: 'Quantity in store',
 		required: 'required'
 	},{

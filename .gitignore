@@ -1,1 +1,4 @@
 /target/
+.idea/libraries/
+.idea/modules.xml
+src/main/main.iml

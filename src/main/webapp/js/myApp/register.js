@@ -49,7 +49,7 @@ var register = App.extend(App.Cmp, {
 		placeholder : 'Enter the name of your town here',
 		type : 'password',
 		required : 'required',
-		label: 'password'
+		label: 'confirmpassword'
 
 	},{
 		id: 'Id',

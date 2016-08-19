@@ -1,7 +1,8 @@
 package Stock.users.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -23,24 +24,36 @@ public class RegisterAction extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Users user = new Users();
-		
-		String pass = req.getParameter("User_Password");
-		String confpass = req.getParameter("User_ConfirmPassword");
-		
-		if(pass.equals(confpass)){
+
+		String password = req.getParameter("User_Password");
+		String hashedPass = "";
+		try {
+			hashedPass = hashPassword(password);
+		} catch (NoSuchAlgorithmException e) {
+
+			e.printStackTrace();
+		}
+
 		user.setUser_Name(req.getParameter("User_Name"));
-		user.setUser_Password(req.getParameter("User_Password"));
+		user.setUser_Password(hashedPass);
 		user.setUser_Email(req.getParameter("User_Email"));
 		user.setUser_PhoneNo(req.getParameter("User_PhoneNo"));
 		user.setUser_Box(req.getParameter("User_Box"));
 
 		UserBean.add(user);
-		}
-		else {
-			System.out.println("Passwords do naot match");
-			PrintWriter out = resp.getWriter();
-			out.println("login.jsp");
-		}
+
 	}
+	public static String hashPassword(String password)throws NoSuchAlgorithmException{
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		md.update(password.getBytes());
+		byte [] b = md.digest();
+		StringBuffer sb = new StringBuffer();
+		for (byte b1 : b) {
+			sb.append(Integer.toHexString(b1 & 0xff).toString());
+		}
+		return sb.toString();
+
+	}
+
 
 }

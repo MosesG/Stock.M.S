@@ -397,7 +397,7 @@
                         <a href="#" ><i class="zmdi zmdi-collection-text" onclick="restock.init2()"></i>Restock Orders</a>
                     </li>
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
+                        <a href="invoice.jsp" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
                     </li>
                     <li class="sub-menu" >
                         <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt" ></i>Reports</a>
@@ -514,6 +514,31 @@
         <script src="vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
         <script src="js/flot-charts/curved-line-chart.js"></script>
         <script src="js/flot-charts/line-chart.js"></script>
+
+        <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/alertifyjs/1.8.0/alertify.min.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/default.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/semantic.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
+
+        <!--
+            RTL version
+        -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.rtl.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/default.rtl.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/semantic.rtl.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.rtl.min.css"/>
+
+
 
         <!-- Placeholder for IE9 -->
         <!--[if IE 9 ]>

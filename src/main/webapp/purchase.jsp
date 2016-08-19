@@ -27,10 +27,11 @@
                     StockMan. <i>New Purchase</i>
                 </div>
 
-                <div class="lb-body">
-                <span style="color:red; visibility:hidden; " id = "error">Incorrect login details!</span>
-        		<div id = "purchase-form"></div>
-        		
+                <div class="lb-body" >
+                    <div class="form-horizontal" role="form">
+                            <span style="color:red; visibility:hidden; " id = "error">Incorrect login details!</span>
+                            <div id = "purchase-form"></div>
+                    </div>
                 </div>
             </div>
 
@@ -55,7 +56,31 @@
         <![endif]-->
 
         <script src="js/functions.js"></script>
-        
+        <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/alertifyjs/1.8.0/alertify.min.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/default.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/semantic.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
+
+        <!--
+            RTL version
+        -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.rtl.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/default.rtl.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/semantic.rtl.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.rtl.min.css"/>
+
+
+
     </body>
 
 <!-- Mirrored from byrushan.com/projects/mae/1-0/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jul 2016 09:15:12 GMT -->

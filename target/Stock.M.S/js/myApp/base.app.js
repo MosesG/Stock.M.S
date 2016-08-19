@@ -50,12 +50,10 @@ App.Cmp = {
 		me.nullChecker();
 		me.numberChecker();
 		me.mailChecker();
+		me.confirmpassword();
 
 		if (this.httpUrl == './login')
 			me.login();
-
-		if (this.httpUrl == './register')
-			me.register();
 
 		me.submitForm();
 	},
@@ -138,6 +136,54 @@ App.Cmp = {
 				});
 
 		return me.email;
+	},
+
+	confirmpass : false,
+	confirmpassword: function () {
+
+		var me = this;
+
+		me.model
+			.forEach(function(el) {
+
+				if (el.id == "confirmpassword") {
+
+					var password = document.getElementById("password").value;
+					var confpassword = document.getElementById("confirmpassword").value;
+
+					var tested ;
+					if(password != confpassword)
+						tested = false;
+
+					var fieldId = document.getElementById(el.id);
+					console.log("fieldid: "+ fieldId);
+
+					if (tested == false) {
+
+						me.ajaxRequest.call({
+							updateTarget : function() {
+								me.commonError("password mismatch",
+									el.id, fieldId);
+
+							},
+							httpMethod : 'POST',
+							httpUrl : me.httpUrl
+
+						});
+
+						me.confirmpass = false;
+						alertify.error('password mismatch');
+
+					} else {
+						me.commonOkay(el.id);
+						me.confirmpass = true;
+
+					}
+				}
+			});
+
+		return me.confirmpass;
+
 	},
 
 	commonError : function(errorMsg, myId, fieldId) {
@@ -231,16 +277,6 @@ App.Cmp = {
 						+ '" class="form-control auto-size" id="' + el.id
 						+ '" </div></div></div></div>';
 			
-			
-			/*if (this.httpUrl == './sales') {
-				if (el.name == 'sale_Quantity')
-					Qnt = el.value;
-					console.log("this is the quantity: " + Qnt);
-
-				if (el.name == 'prod_Name')
-					id = el.value;
-					console.log(id);
-			}*/
 		})
 
 		if (this.httpUrl == './register') {
@@ -262,20 +298,11 @@ App.Cmp = {
 		} else if (this.httpUrl == './purchase') {
 			form += '</form>'
 				+ '<div class="col-sm-10"  style="align:center">'
-				+ '<a class="btn btn-success" id="'
-				+ me.modelId
-				+ '-save">Purchase</a> | '
+			var typedname = document.getElementById("Name").value;
+				+ '<a class="btn btn-success" onclick ="me.receipt(typedname)" >Purchase</a> | '
 				+ '<a class="btn palette-Teal bg" href ="index.jsp">Cancel</a>'
 				+ '</div>';
-	} else if (this.httpUrl == './sales') {
-			form += '</form>'
-				+ '<div class="col-sm-10"  style="float:right">'
-				+ '<a class="btn btn-success" id="'
-				+ me.modelId
-				+ '-save">Complete purchase</a> | '
-				+ '<a class="btn btn-success" onclick ="register.form()">Register</a>'
-				+ '</div>';
-		} else
+	} else
 			form += '</form>' + '<div class="col-sm-10"  style="float:right">'
 					+ '<a class="btn btn-success" id="' + me.modelId
 					+ '-save">Save</a>' + '</div>';
@@ -283,19 +310,13 @@ App.Cmp = {
 		me.updateTarget(form);
 		me.getEl(me.modelId + '-save').addEventListener("click", function() {
 			me.validate();
-
-			if (this.httpUrl == './login')
-				me.login();
-
-			if (this.httpUrl == './register')
-				me.register();
 		});
 
 	},
 
 	submitForm : function() {
 		var me = this;
-		if (me.Null == false && me.email == true && me.number == true) {
+		if (me.Null == false && me.email == true && me.number == true && me.confirmpass == true) {
 			var formValues = me.model.filter(function(el) {
 				var formEl = me.getEl(el.id);
 				if (!formEl)
@@ -323,6 +344,7 @@ App.Cmp = {
 					if (this.httpUrl == './register') {
 						var successUrl = "login.jsp";
 						window.location.href = successUrl;
+						alertify.success('Registration Successful.');
 					} else
 						me.init();
 				}
@@ -532,7 +554,7 @@ App.Cmp = {
 													+ editId
 													+ "\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a> | <a id=\""
 													+ delId
-													+ "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>";
+													+ "\" ><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a>";
 
 											if ((tableUrl == './category')
 													|| (tableUrl == './product')) {
@@ -570,7 +592,11 @@ App.Cmp = {
 
 								me.getEl(delId).addEventListener('click',
 										function() {
-											me.removeRec(el.id);
+
+											alertify.confirm('Confirm Deletion', 'Are you sure?', function(){ alertify.success('Deleted'), me.removeRec(el.id) }
+												, function(){ alertify.error('Canceled')});
+
+
 										});
 
 								me.getEl(formload).addEventListener('click',
@@ -613,6 +639,7 @@ App.Cmp = {
 		if (me.Null == false && me.email == true && me.number == true) {
 			var typedEmail = document.getElementById("email").value;
 			var typedPassword = document.getElementById("password").value;
+
 			me.ajaxRequest
 					.call({
 						httpMethod : 'GET',
@@ -625,10 +652,8 @@ App.Cmp = {
 							jsonRecords
 									.forEach(function(el) {
 										console.log(el);
+
 										if (el.User_Email == typedEmail) {
-											console
-													.log(typedEmail
-															+ " Already Exists.....checking password....");
 
 											if (el.User_Password == typedPassword) {
 												console.log("Status: "
@@ -637,20 +662,21 @@ App.Cmp = {
 												if (el.User_Status == "Admin") {
 
 													var successUrl = "index2.jsp";
+                                                    alertify.success('Admin access');
 													window.location.href = successUrl;
 
 												} else {
 													var successUrl = "index.jsp";
+                                                    alertify.success('Regular Access');
 													window.location.href = successUrl;
 												}
 											} else
-												console
-														.log("Incorrect Password");
+                                                alertify.error('incorrect password for ' + el.User_Email);
 
 										} else {
-											console.log(typedEmail
-													+ " DOesnt Exists");
+
 											document.getElementById("error").style.visibility = "visible";
+
 										}
 
 									});
@@ -659,23 +685,6 @@ App.Cmp = {
 		}
 	},
 
-	register : function() {
-		var me = this;
-		if (me.Null == false && me.email == true && me.number == true) {
-			var password = document.getElementById("password").value;
-			var confpass = document.getElementById("confirmpassword").value;
-
-			if (password != confpass) {
-				document.getElementById("error").style.visibility = "visible";
-				var successUrl = "register.form()";
-				window.location.href = successUrl;
-			} else {
-				var successUrl = "login.jsp";
-				window.location.href = successUrl;
-			}
-		}
-	},
-	
 	restockform: function(){
 		var me = this;
 		me.ajaxRequest.call({
@@ -751,6 +760,25 @@ App.Cmp = {
 						me.getEl(me.responseTarget).innerHTML = table
 					}
 				})
+	},
+
+	receipt: function(name){
+
+		var receiptlayout;
+			receiptlayout = '<div class="col-sm-4">'
+							+ ' <div class="card pt-item">'
+							+ '<div class="pti-header bgm-cyan">'
+							+ '<h2>@ Ksh 660 <small>| mo</small></h2>'
+							+ '<div class="ptih-title">Product test</div>'
+							+ '</div>'
+							+ '<div class="pti-body">'
+							+ '<div class="ptib-item">'
+							+ '<div class="ptib-item">My first receipt</div>'
+							+ '</div>'
+							+ '<div class="pti-footer">'
+							+ '<a href="#" class="bgm-cyan"><i class="zmdi zmdi-check"></i></a>'
+							+ '</div></div></div>';
+
 	},
 
 	init : function() {

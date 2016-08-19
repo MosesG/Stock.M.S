@@ -23,8 +23,8 @@
         <header id="header" class="media">
             <div class="pull-left h-logo">
                 <a href="index.html" class="hidden-xs">
-                    Material
-                    <small>admin extended</small>
+                    StockMan System  
+                    <small>extended</small>
                 </a>
 
                 <div class="menu-collapse" data-ma-action="sidebar-open" data-ma-target="main-menu">
@@ -123,7 +123,7 @@
                             <a href="#"><i class="zmdi zmdi-settings"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="#"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                            <a href="login.jsp"><i class="zmdi zmdi-time-restore"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -333,13 +333,13 @@
                 </div>
             </aside>
 
-            <aside id="s-main-menu" class="sidebar">
+           <aside id="s-main-menu" class="sidebar">
                 <div class="smm-header">
                     <i class="zmdi zmdi-long-arrow-left" data-ma-action="sidebar-close"></i>
                 </div>
 
                 <ul class="smm-alerts">
-                    <li data-user-alert="sua-messages" data-ma-action="sidebar-open" data-ma-target="user-alerts">
+                    <li class="active" data-user-alert="sua-messages" data-ma-action="sidebar-open" data-ma-target="user-alerts">
                         <i class="zmdi zmdi-email"></i>
                     </li>
                     <li data-user-alert="sua-notifications" data-ma-action="sidebar-open" data-ma-target="user-alerts">
@@ -351,96 +351,49 @@
                 </ul>
 
                 <ul class="main-menu">
-                    <li>
-                        <a href="index.html"><i class="zmdi zmdi-home"></i> Home</a>
-                    </li>
+                    <li >
+                        <a href="index.jsp"><i class="zmdi zmdi-home"></i> Home</a>
+                    </li >
                     <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> Headers</a>
-
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Products</a>
+                        
                         <ul>
-                            <li><a href="alternative-header.html">Altenative</a></li>
-                            <li><a href="colored-header.html">Colored</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="typography.html"><i class="zmdi zmdi-format-underlined"></i> Typography</a></li>
-                    <li><a href="widgets.html"><i class="zmdi zmdi-widgets"></i> Widgets</a></li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i> Tables</a>
-
-                        <ul>
-                            <li><a href="tables.html">Normal Tables</a></li>
-                            <li><a href="data-tables.html">Data Tables</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-text"></i> Forms</a>
-
-                        <ul>
-                            <li><a href="form-elements.html">Basic Form Elements</a></li>
-                            <li><a href="form-components.html">Form Components</a></li>
-                            <li><a href="form-examples.html">Form Examples</a></li>
-                            <li><a href="form-validations.html">Form Validation</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>User Interface</a>
-                        <ul>
-                            <li><a href="colors.html">Colors</a></li>
-                            <li><a href="animations.html">Animations</a></li>
-                            <li><a href="box-shadow.html">Box Shadow</a></li>
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="icons.html">Icons</a></li>
-                            <li><a href="alerts.html">Alerts</a></li>
-                            <li><a href="preloaders.html">Preloaders</a></li>
-                            <li><a href="notification-dialog.html">Notifications & Dialogs</a></li>
-                            <li><a href="media.html">Media</a></li>
-                            <li><a href="components.html">Components</a></li>
-                            <li><a href="other-components.html">Others</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="flot-charts.html"><i class="zmdi zmdi-trending-up"></i> Flot Charts</a></li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-image"></i>Photo Gallery</a>
-                        <ul>
-                            <li><a href="photos.html">Default</a></li>
-                            <li><a href="photo-timeline.html">Timeline</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="calendar.html"><i class="zmdi zmdi-calendar"></i> Calendar</a></li>
-                    <li><a href="generic-classes.html"><i class="zmdi zmdi-layers"></i> Generic Classes</a></li>
-                    <li class="sub-menu active">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-item"></i> Sample Pages</a>
-                        <ul>
-                            <li><a href="profile-about.html">Profile</a></li>
-                            <li><a href="list-view.html">List View</a></li>
-                            <li><a href="messages.html">Messages</a></li>
-                            <li><a href="pricing-table.html">Pricing Table</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="wall.html">Wall</a></li>
-                            <li class="active"><a href="invoice.html">Invoice</a></li>
-                            <li><a href="login.html">Login and Sign Up</a></li>
-                            <li><a href="lockscreen.html">Lockscreen</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-menu"></i> 3 Level Menu</a>
-
-                        <ul>
-                            <li><a href="form-elements.html">Level 2 link</a></li>
-                            <li><a href="form-components.html">Another level 2 Link</a></li>
-                            <li class="sub-menu">
-                                <a href="#" data-ma-action="submenu-toggle">I have children too</a>
+                             <li class="sub-menu">
+                                <a href="#" data-ma-action="submenu-toggle">View Existing</a>
 
                                 <ul>
-                                    <li><a href="#">Level 3 link</a></li>
-                                    <li><a href="#">Another Level 3 link</a></li>
-                                    <li><a href="#">Third one</a></li>
+                                    <li><a href="#"  onclick="products.init()"> All Products</a></li>
+                                    <li><a href="#" onclick="category.init()">By Categories</a></li>
+                                    <li><a href="#" onclick="department.init()">By Departments</a></li>
                                 </ul>
                             </li>
-                            <li><a href="form-validations.html">One more 2</a></li>
+                            
+                            <li class="sub-menu">
+                            <a href="#" data-ma-action="submenu-toggle">New Product</a>
+                            	<ul>
+                                    <li><a href="#"  onclick="products.form()">Add Product</a></li>
+                                    <li><a href="#" onclick="category.form()">Add Category</a></li>
+                                    <li><a href="#" onclick="department.form()">Add Department</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
+                   
+                    <li class="sub-menu">
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i>Purchases</a>
+                        
+                        <ul>
+                            <li><a href="purchase.jsp" >New Purchase</a></li>
+                            <li><a href="#"  onclick="sales.init()">Check purchases</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="#" onclick="restock.init2()"><i class="zmdi zmdi-collection-text" ></i>Restock Orders</a>
+                    </li>
+                    <li class="active">
+                        <a href="invoice.jsp" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
+                    </li>
+                    
                 </ul>
             </aside>
 
@@ -461,36 +414,17 @@
                                     <div class="text-right">
                                         <p class="c-gray">Invoice from</p>
                                         
-                                        <h4>David Designs LLC</h4>
+                                        <h4>StockMan System</h4>
                                         
                                         <span class="text-muted">
                                             <address>
-                                                44, Qube Towers
-                                                Dubai Media City, Dubai<br>
-                                                United Arab Emirates
+                                                Mayfair Business Center
+                                                Nairobi, Westlands<br>
+                                               	Kenya.
                                             </address>
                 
-                                            0097154686384<br/>
-                                            david.atom@ddesign.com
-                                        </span>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-xs-6">
-                                    <div class="i-to">
-                                        <p class="c-gray">Invoice to</p>
-                                        
-                                        <h4>Mallinda Hollaway</h4>
-                                        
-                                        <span class="text-muted">
-                                            <address>
-                                                10098 ABC Towers
-                                                Dubai Silicon Oasis, Dubai<br>
-                                                United Arab Emirates.
-                                            </address>
-                
-                                            00971123456789<br/>
-                                            malinda.h@gmail.com
+                                            0716354036<br/>
+                                            moseg95@gmail.com
                                         </span>
                                     </div>
                                 </div>
@@ -509,14 +443,14 @@
                                 
                                 <div class="col-xs-3">
                                     <div class="bgm-blue brd-2 p-15">
-                                        <div class="c-white m-b-5">Date</div>
-                                        <h2 class="m-0 c-white f-300">20/06/2015</h2>
+                                        <div class="c-white m-b-5">As At </div>
+                                        <h2 class="m-0 c-white f-300">15/08/2016</h2>
                                     </div>
                                 </div>
                                 
                                 <div class="col-xs-3">
                                     <div class="bgm-green brd-2 p-15">
-                                        <div class="c-white m-b-5">Whatever</div>
+                                        <div class="c-white m-b-5">Average Sales</div>
                                         <h2 class="m-0 c-white f-300">472-000</h2>
                                     </div>
                                 </div>
