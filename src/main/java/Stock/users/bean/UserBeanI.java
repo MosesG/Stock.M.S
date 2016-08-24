@@ -16,4 +16,8 @@ public interface UserBeanI {
 	
 	String load(long l);
 
+	boolean loginStatus (String email, String password);
+
+	public String userstatus(String email, String password);
+
 }

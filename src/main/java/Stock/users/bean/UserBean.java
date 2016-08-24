@@ -61,6 +61,14 @@ public class UserBean implements UserBeanI{
 		
 		return sb.toString();
 	}
+
+	public boolean loginStatus(String email, String password) {
+
+		if(UserDao.login(email, password) == true)
+			return true;
+		else
+			return false;
+	}
 	
 	public List<Users> list() {
 		return UserDao.list(new Users());
@@ -80,5 +88,9 @@ public class UserBean implements UserBeanI{
 		else
 			return "{}";
 	}
-	
+
+	public String userstatus(String email, String password) {
+
+		return UserDao.userstatus(email, password);
+	}
 }

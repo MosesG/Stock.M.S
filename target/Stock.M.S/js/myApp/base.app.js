@@ -22,6 +22,9 @@ App.Cmp = {
 		var me = this;
 		me.getEl(me.responseTarget).innerHTML = resp;
 	},
+	redirect: function(url){
+		window.location = url;
+	},
 	ajaxRequest : function() {
 		var me = this;
 		var xhr = new XMLHttpRequest();
@@ -43,6 +46,12 @@ App.Cmp = {
 		} else
 			xhr.send();
 	},
+
+	Name: '',
+	price: 0,
+	quantity : 0,
+	total : 0,
+	PhoneNo : 0,
 	validate : function() {
 
 		var me = this;
@@ -55,7 +64,66 @@ App.Cmp = {
 		if (this.httpUrl == './login')
 			me.login();
 
+		if (this.httpUrl == './purchase') {
+
+			me.model.forEach(function(el) {
+				if (el.id == "Product"){
+					me.Name = document.getElementById(el.id).value;
+
+					me.ajaxRequest.call({
+							httpMethod : 'GET',
+							httpUrl : './product',
+							responseTarget : me.responseTarget,
+							updateTarget : function(resp) {
+
+								var jsonRecords = JSON.parse(resp);
+
+								jsonRecords.forEach(function(el) {
+
+										if (el.Prod_Name == me.Name) {
+
+											me.price = el.Prod_Price;
+
+										}
+
+									});
+							}
+						})
+				}
+
+				if(el.id == "Quantity"){
+					me.quantity = document.getElementById(el.id).value;
+				}
+
+				if(el.id == "phone"){
+					me.PhoneNo = document.getElementById(el.id).value;
+				}
+
+				me.total = me.price * me.quantity;
+			})
+
+			alertify.confirm('Confirm Purchase', 'Item: ' + me.Name + '' +
+				'<br>Price: ' + me.price +'' +
+				'<br>Quantity: '+ me.quantity +'' +
+				'<br>Total price: '+ me.total +'' +
+				'<br>Customer No: '+ me.PhoneNo +'', function(){ alertify.success('Successful'), me.purchase(); }
+			, function(){ alertify.error('Canceled')});
+		}
+
+		if (this.httpUrl == './register') {
+
+			if(me.confirmpass == true) {
+				var successUrl = "login.jsp";
+				window.location.href = successUrl;
+				alertify.success('Registration Successful.');
+			} else{
+				alertify.error('password mismatch.');
+			}
+		}
+
 		me.submitForm();
+
+
 	},
 	number : true,
 	numberChecker : function() {
@@ -172,7 +240,7 @@ App.Cmp = {
 						});
 
 						me.confirmpass = false;
-						alertify.error('password mismatch');
+
 
 					} else {
 						me.commonOkay(el.id);
@@ -298,25 +366,31 @@ App.Cmp = {
 		} else if (this.httpUrl == './purchase') {
 			form += '</form>'
 				+ '<div class="col-sm-10"  style="align:center">'
-			var typedname = document.getElementById("Name").value;
-				+ '<a class="btn btn-success" onclick ="me.receipt(typedname)" >Purchase</a> | '
+				+ '<a class="btn btn-success" id="'
+				+ me.modelId
+				+ '-save">Purchase</a> | '
 				+ '<a class="btn palette-Teal bg" href ="index.jsp">Cancel</a>'
 				+ '</div>';
-	} else
-			form += '</form>' + '<div class="col-sm-10"  style="float:right">'
-					+ '<a class="btn btn-success" id="' + me.modelId
-					+ '-save">Save</a>' + '</div>';
+	} else {
+            form += '</form>' + '<div class="col-sm-10"  style="float:right">'
+                + '<a class="btn btn-success" id="' + me.modelId
+                + '-save">Save</a>' + '</div>';
+        }
 
 		me.updateTarget(form);
 		me.getEl(me.modelId + '-save').addEventListener("click", function() {
 			me.validate();
+
+
 		});
 
 	},
 
 	submitForm : function() {
 		var me = this;
-		if (me.Null == false && me.email == true && me.number == true && me.confirmpass == true) {
+		if (me.Null == false && me.email == true && me.number == true ) {
+
+
 			var formValues = me.model.filter(function(el) {
 				var formEl = me.getEl(el.id);
 				if (!formEl)
@@ -330,10 +404,10 @@ App.Cmp = {
 				return el;
 
 			}).map(
-					function(el) {
-						return encodeURIComponent(el.name) + '='
-								+ encodeURIComponent(el.value);
-					}).join('&');
+				function(el) {
+					return encodeURIComponent(el.name) + '='
+						+ encodeURIComponent(el.value);
+				}).join('&');
 
 			me.ajaxRequest.call({
 				httpMethod : 'POST',
@@ -341,11 +415,7 @@ App.Cmp = {
 				requestParams : formValues,
 				responseTarget : me.responseTarget,
 				updateTarget : function(resp) {
-					if (this.httpUrl == './register') {
-						var successUrl = "login.jsp";
-						window.location.href = successUrl;
-						alertify.success('Registration Successful.');
-					} else
+
 						me.init();
 				}
 			});
@@ -708,6 +778,13 @@ App.Cmp = {
 
 	},
 
+	purchase : function(){
+	var me = this;
+
+		console.log( me.Name +" : "+ me.PhoneNo +"  :   "+ me.quantity)
+
+},
+
 	restock : function() {
 		var me = this;
 
@@ -764,7 +841,9 @@ App.Cmp = {
 
 	receipt: function(name){
 
-		var receiptlayout;
+
+
+		/*var receiptlayout;
 			receiptlayout = '<div class="col-sm-4">'
 							+ ' <div class="card pt-item">'
 							+ '<div class="pti-header bgm-cyan">'
@@ -778,7 +857,7 @@ App.Cmp = {
 							+ '<div class="pti-footer">'
 							+ '<a href="#" class="bgm-cyan"><i class="zmdi zmdi-check"></i></a>'
 							+ '</div></div></div>';
-
+*/
 	},
 
 	init : function() {
@@ -787,9 +866,5 @@ App.Cmp = {
 
 	init2 : function() {
 		this.restock(this.httpUrl);
-	},
-
-	init3 : function() {
-		this.form();
 	}
 };

@@ -18,6 +18,13 @@ var purchase = App.extend(App.Cmp, {
 		type: 'text',
 		placeholder: 'Quantity',
 		required: 'required'
+	},{
+		id: 'phone',
+		label: 'Phone No',
+		name: 'Phone#',
+		type: 'number',
+		placeholder: 'customer phone#',
+		required: 'required'
 	}],
 	removeRecord: true,
 });
