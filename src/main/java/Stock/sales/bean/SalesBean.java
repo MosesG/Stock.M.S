@@ -32,7 +32,7 @@ public class SalesBean implements SalesBeanI{
 	}
 	
 	public void add(Sales sales){
-		if(sales.getProd_Id() == null)
+		if(sales.getProd_Name() == null)
 			return;
 		
 		sales = SalesDao.save(sales);

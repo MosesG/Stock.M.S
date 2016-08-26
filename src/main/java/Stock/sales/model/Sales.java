@@ -13,16 +13,22 @@ public class Sales {
 	
 	@Id@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
+
+	@Column(name = "Prod_Name")
+	private String Prod_Name;
 	
 	@Column(name = "Sale_Quantity")
 	private int Sale_Quantity;
 	
 	@Column(name = "Sale_Price")
 	private double Sale_Price;
-	
-	@Column(name = "Prod_Id")
-	private Long Prod_Id;
-	
+
+	@Column(name = "Sale_Total")
+	private double Sale_Total;
+
+	@Column(name = "Sale_Customer")
+	private Long Sale_Customer;
+
 	@Column(name = "Sale_Time", columnDefinition = "DATE" )
 	private String Sale_Time;
 
@@ -58,22 +64,42 @@ public class Sales {
 		Sale_Price = sale_Price;
 	}
 
-	public Long getProd_Id() {
-		return Prod_Id;
+	public double getSale_Total() {
+		return Sale_Total;
 	}
 
-	public void setProd_Id(Long prod_Id) {
-		Prod_Id = prod_Id;
+	public void setSale_Total(double sale_Total) {
+		Sale_Total = sale_Total;
 	}
-	
+
+	public String getProd_Name() {
+		return Prod_Name;
+	}
+
+	public void setProd_Name(String prod_Name) {
+		Prod_Name = prod_Name;
+	}
+
+	public Long getSale_Customer() {
+		return Sale_Customer;
+	}
+
+	public void setSale_Customer(Long sale_Customer) {
+		Sale_Customer = sale_Customer;
+	}
+
+
+
 	public String getJson(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("{")
 			.append("\"id\": \"").append(getId()).append("\",")
-			.append("\"Prod_Id\": \"").append(getSale_Quantity()).append("\",")
+			.append("\"Prod_Name\": \"").append(getProd_Name()).append("\",")
 			.append("\"Sale_Quantity\": \"").append(getSale_Quantity()).append("\",")
 			.append("\"Sale_Price\": \"").append(getSale_Price()).append("\",")
-			.append("\"sale_Time\": \"").append(getSale_Price()).append("\"");
+			.append("\"Sale_Total\": \"").append(getSale_Total()).append("\",")
+			.append("\"Sale_Customer\": \"").append(getSale_Customer()).append("\",")
+			.append("\"Sale_Time\": \"").append(getSale_Time()).append("\"");
 		sb.append("}");
 		
 		return sb.toString();

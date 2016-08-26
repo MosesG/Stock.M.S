@@ -1,7 +1,7 @@
 var sales = App.extend(App.Cmp, {
 	modelId: 'sales',
 	httpUrl: './sales',
-	responseTarget: 'ajax-content',
+	responseTarget: 'invoicetable',
 	title:'sales',	
 	model: [{
 		id: 'Product',

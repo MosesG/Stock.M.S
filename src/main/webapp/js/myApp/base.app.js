@@ -52,6 +52,7 @@ App.Cmp = {
 	quantity : 0,
 	total : 0,
 	PhoneNo : 0,
+    time : new Date(),
 	validate : function() {
 
 		var me = this;
@@ -103,10 +104,12 @@ App.Cmp = {
 			})
 
 			alertify.confirm('Confirm Purchase', 'Item: ' + me.Name + '' +
+
 				'<br>Price: ' + me.price +'' +
 				'<br>Quantity: '+ me.quantity +'' +
 				'<br>Total price: '+ me.total +'' +
-				'<br>Customer No: '+ me.PhoneNo +'', function(){ alertify.success('Successful'), me.purchase(); }
+				'<br>Customer No: '+ me.PhoneNo +'' +
+                '<br><br><br>Time: '+ me.time +'', function(){ alertify.success('Successful'), me.purchase(); }
 			, function(){ alertify.error('Canceled')});
 		}
 
@@ -120,8 +123,11 @@ App.Cmp = {
 				alertify.error('password mismatch.');
 			}
 		}
+		else{
+			me.submitForm();
+		}
 
-		me.submitForm();
+
 
 
 	},
@@ -755,33 +761,70 @@ App.Cmp = {
 		}
 	},
 
-	restockform: function(){
-		var me = this;
-		me.ajaxRequest.call({
-			httpMethod : me.httpMethod,
-			httpUrl : me.httpUrl + '/load?id=' + id,
-			responseTarget : me.responseTarget,
+	loadinvoice: function () {
 
-			updateTarget : function(resp) {
-				me.form();
-				var result = JSON.parse(resp);
-				me.model.forEach(function(el) {
-					Object.keys(result).forEach(function(k) {
-						if (el.name == k) {
-							console.log(el.id + '=' + result[k]);
-							me.getEl(el.id).value = result[k];
-						}
-					})
-				})
-			}
-		});
+	    var me  = this;
 
-	},
+        me.ajaxRequest
+            .call({
+                httpMethod : 'GET',
+                httpUrl : './sales',
+                responseTarget : me.responseTarget,
+                updateTarget : function(resp) {
+                    var table = '<table class="table i-table m-t-25 m-b-25">';
+                    table += ' <thead class="text-uppercase">'
+                        + '<th class="c-gray">ITEM DESCRIPTION</th>'
+                        + '<th class="c-gray">UNIT PRICE</th>'
+                        + '<th class="c-gray">QUANTITY</th>'
+                        + '<th class="highlight">TOTAL</th>'
+                        + '</thead>';
+
+                    table += '<tbody>';
+                    table += '<tr>';
+
+                    var jsonRecords = JSON.parse(resp);
+
+                    jsonRecords
+                        .forEach(function(el) {
+
+                            table += '<td width="50%"><h5 class="text-uppercase f-400">' + el.Prod_Name + '</h5></td>';
+                            table += '<td>' + el.Sale_Price + '</td>';
+                            table += '<td>' + el.Sale_Quantity + '</td>';
+                            table += '<td class="highlight">'+ el.Sale_Total+'</td>';
+
+                            table += '</tr>';
+
+                        });
+
+                    table += '</tbody>';
+
+                    me.getEl(me.responseTarget).innerHTML = table
+                }
+            })
+    },
 
 	purchase : function(){
 	var me = this;
 
-		console.log( me.Name +" : "+ me.PhoneNo +"  :   "+ me.quantity)
+            var items = [{key:'Prod_Name', value: me.Name},{key:'Prod_Price', value: me.price},{key:'Sale_Quantity', value: me.quantity},{key:'Sale_Total', value: me.total},{key:'Cust_Phone', value: me.PhoneNo},{key:'sale_time', value: me.time}]
+                .map(
+				function (items) {
+					return encodeURIComponent(items.key) + '='
+						+ encodeURIComponent(items.value);
+				}).join('&');
+
+
+        me.ajaxRequest.call({
+            httpMethod: 'POST',
+            httpUrl: './purchase',
+            requestParams: items,
+            responseTarget: me.responseTarget,
+            updateTarget: function (resp) {
+
+                document.getElementById("Mycart").style.visibility = "visible";
+
+            }
+        });
 
 },
 

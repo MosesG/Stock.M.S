@@ -29,8 +29,8 @@
 
                 <div class="lb-body" >
                     <div class="form-horizontal" role="form">
-                            <span style="color:red; visibility:hidden; " id = "error">Incorrect login details!</span>
                             <div id = "purchase-form"></div>
+                            <span style="color:red; visibility:hidden; " id = "Mycart"></span>
                     </div>
                 </div>
             </div>
