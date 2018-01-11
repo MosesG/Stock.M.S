@@ -47,9 +47,9 @@ var user = App.extend(App.Cmp, {
 		id : 'status',
 		name : 'User_Status',
 		placeholder : 'stuff status',
-		type : 'checkbox',
+		type : 'select',
+		options: [],
 		label: 'Status'
-
 	},{
 		id: 'Id',
 		label: '',
@@ -62,6 +62,12 @@ var user = App.extend(App.Cmp, {
 });
 (function(){
 	user.table();
+	
+	var statusoptions = [];
+	
+	statusoptions.push('Admin','Regular');
+	
+	user.model[5].options = statusoptions;
 })();
 
 

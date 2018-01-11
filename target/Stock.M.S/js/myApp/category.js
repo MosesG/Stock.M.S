@@ -48,7 +48,6 @@ var category = App.extend(App.Cmp, {
 		httpUrl : './department',
 		updateTarget : function(resp) {
 			var options = [];
-			var price
 			console.log(resp);
 			JSON.parse(resp).forEach(function(el){
 				options.push({

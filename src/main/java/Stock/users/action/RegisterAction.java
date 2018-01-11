@@ -27,20 +27,23 @@ public class RegisterAction extends HttpServlet{
 
 		String password = req.getParameter("User_Password");
 		String hashedPass = "";
+		
+		System.out.println(req.getParameter("User_Password"));
+
 		try {
 			hashedPass = hashPassword(password);
+			
+			user.setUser_Name(req.getParameter("User_Name"));
+			user.setUser_Password(hashedPass);
+			user.setUser_Email(req.getParameter("User_Email"));
+			user.setUser_PhoneNo(req.getParameter("User_PhoneNo"));
+			user.setUser_Box(req.getParameter("User_Box"));
+
+			UserBean.add(user);
 		} catch (NoSuchAlgorithmException e) {
 
 			e.printStackTrace();
 		}
-
-		user.setUser_Name(req.getParameter("User_Name"));
-		user.setUser_Password(hashedPass);
-		user.setUser_Email(req.getParameter("User_Email"));
-		user.setUser_PhoneNo(req.getParameter("User_PhoneNo"));
-		user.setUser_Box(req.getParameter("User_Box"));
-
-		UserBean.add(user);
 
 	}
 	public static String hashPassword(String password)throws NoSuchAlgorithmException{

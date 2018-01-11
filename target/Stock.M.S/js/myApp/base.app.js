@@ -722,7 +722,7 @@ App.Cmp = {
 						httpUrl : './user',
 						responseTarget : me.responseTarget,
 						updateTarget : function(resp) {
-
+							console.log(resp);
 							var jsonRecords = JSON.parse(resp);
 
 							jsonRecords

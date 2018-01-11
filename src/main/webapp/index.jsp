@@ -394,7 +394,7 @@
                         <a href="#" onclick="restock.init2()"><i class="zmdi zmdi-collection-text" ></i>Restock Orders</a>
                     </li>
                     <li >
-                        <a href="#" onclick="sales.loadinvoice()><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
+                        <a href="#" onclick="sales.loadinvoice()"><i class="zmdi zmdi-swap-alt"></i>Receipt</a>
                     </li>
                     
                 </ul>
